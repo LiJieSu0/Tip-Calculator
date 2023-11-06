@@ -9,27 +9,32 @@ export default function App() {
   return (
     <View style={styles.container}>
       <View>
+        <Text>Everyone pays { (total*(1+tipPercent/100)/splitPeople).toFixed(2)}</Text>
+        <Text> </Text>
+        <Text>Split people: </Text>
         <TextInput
-          placeholder='Enter Total Cost'
-          onChangeText={(val)=>{
-            setTotal(val);
-          }}
-        />
-        <Text>Tip  
-          <TextInput
-            placeholder='Enter percent you want to pay'
-            onChangeText={(val)=>setTipPercent(val)}
-          /> % 
-        </Text>
-        <Text>Tip= {total*tipPercent/100}</Text>
-        <TextInput
-          placeholder='Enter Split People'
+          placeholder='Enter number...'
           onChangeText={(val)=>{
             setSplitPeople(val);
           }}
-        />
-        <Text>Splited by {splitPeople}, Everyone pays {(total*(tipPercent/100))/splitPeople} tip</Text>
-        <Text>Everyone pays {total*(1+tipPercent/100)/splitPeople}</Text>
+          />
+        <Text> </Text>
+          
+          <Text>Splited by {splitPeople}, Everyone pays {((total*(tipPercent/100))/splitPeople).toFixed(2)}$ tip</Text>
+          <Text>Tip  
+            <TextInput
+              placeholder='   Percent'
+              onChangeText={(val)=>setTipPercent(val)}
+            /> 
+          %  Total Tip= {total*tipPercent/100}</Text>
+          <Text> </Text>
+          <Text>Total Cost</Text>
+          <TextInput
+            placeholder='Enter Total Cost'
+            onChangeText={(val)=>{
+              setTotal(val);
+            }}
+          />
       </View>
     </View>
   );
