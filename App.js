@@ -1,50 +1,18 @@
 // import { StatusBar } from 'expo-status-bar';
 import React,{useState} from 'react';
 import { StyleSheet, Text, View, TextInput} from 'react-native';
+import Calculator from './components/Calculator';
 
+import { myData } from './GlobalContext';
 export default function App() {
-  const [total, setTotal]=useState(0);
-  const [splitPeople,setSplitPeople]=useState(1);
-  const [tipPercent,setTipPercent]=useState(0);
 
+  const [value,setValue]=useState(1);
   return (
-    <View style={styles.container}>
-      <View>
-        <Text style={styles.font}>You pay: { (total*(1+tipPercent/100)/splitPeople).toFixed(2)}</Text>
-        <Text> </Text>
-        <Text>People(amount): </Text>
-        <TextInput
-          placeholder='Enter number...'
-          onChangeText={(val)=>{
-            setSplitPeople(val);
-          }}
-          />
-        <Text> </Text>
-        {/* <Text>Splited by {splitPeople}, Everyone pays {((total*(tipPercent/100))/splitPeople).toFixed(2)}$ tip</Text> */}
-        
-        {/* <Text></Text> */}
-        <text>Total Cost:</text>
-        <TextInput
-            placeholder='Enter Total Cost'
-            onChangeText={(val)=>{
-              setTotal(val);
-            }}
-          />
-        
-        <Text> 
-          <TextInput
-            placeholder='Percent'
-            onChangeText={(val)=>setTipPercent(val)}
-          /><text>%</text>
-          <br></br>
-          <Text>Total Tip= {(total*tipPercent/100).toFixed(2)}</Text>
-        </Text>
-        {/* <Text>Everyone pays {((total*(tipPercent/100))/splitPeople).toFixed(2)}$ tip</Text> */}
-        <Text> </Text>
-          
-          
+    <myData.Provider value={value}>
+      <View style={styles.container}>
+        <Calculator/>
       </View>
-    </View>
+    </myData.Provider>
   );
 }
 
