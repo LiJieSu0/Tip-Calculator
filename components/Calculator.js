@@ -65,6 +65,8 @@ export default function Calculator(){
 
                 <Text>{"\n\n"}</Text>
                 <Text>Total Tip= {(total*tipPercent/100).toFixed(2)}</Text>
+
+                
             </View>
 );}
 
