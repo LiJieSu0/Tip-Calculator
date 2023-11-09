@@ -1,8 +1,9 @@
 import React,{useState,useContext,createContext} from 'react';
-import { StyleSheet, Text, View, TextInput,Pressable} from 'react-native';
+import { StyleSheet, Text, View, TextInput,Pressable, Image} from 'react-native';
 import CalculatorBtn from './CalculatorBtn';
 import { myData } from '../GlobalContext';
 import { globalStyles } from '../GlobalStyle';
+
 
 export default function Calculator(){
 
@@ -14,16 +15,23 @@ export default function Calculator(){
 
     return(
         <View>
-                <Text style={globalStyles.font}>You pay: { (total*(1+tipPercent/100)/splitPeople).toFixed(2)} ${"\n\n"}</Text>
+                <Text style={globalStyles.font}>You pay: ${ (total*(1+tipPercent/100)/splitPeople).toFixed(2)} </Text>
                 <View style={globalStyles.inputLabelContainer}>
-                    <Text>People(Number): </Text>
+                    {/* people amount */}
+                    {/* <Text>People(Number): </Text>*/}
+
+                    <Image
+                        source={{
+                            uri: 'https://www.flaticon.com/free-icon/people_1769041',
+                        }}
+                    />
                     <TextInput
                         style={globalStyles.input}
                         placeholder='Enter number...'
                         onChangeText={(val)=>{
                         setSplitPeople(val);
                         }}
-                        />
+                    />
                 </View>
 
                 <View style={globalStyles.inputLabelContainer}>

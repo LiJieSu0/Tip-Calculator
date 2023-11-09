@@ -9,9 +9,9 @@ export default function CalculatorBtn(props){
                 <Pressable 
                     style={({pressed}) => [
                         {
-                        backgroundColor: pressed ? 'rgb(210, 230, 255)' : 'pink',
+                            backgroundColor: pressed ? 'rgb(210, 230, 255)' : 'pink',
                         },
-                        globalStyles.wrapperCustom,
+                            globalStyles.wrapperCustom,
                     ]}
                 >
                 {({pressed}) => (
