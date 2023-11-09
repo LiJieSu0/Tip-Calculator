@@ -9,7 +9,6 @@ export default function App() {
   const [value,setValue]=useState(1);
   return (
     <myData.Provider value={value}>
-      {/* <View style={globalStyles.container}> */}
       <View style={globalStyles.container}>
         <Calculator/>
       </View>

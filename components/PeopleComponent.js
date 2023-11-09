@@ -1,48 +1,56 @@
 import React,{useState,useContext,createContext} from 'react';
-import { StyleSheet, Text, View, TextInput,TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, TextInput,TouchableOpacity, Image} from 'react-native';
 import { globalStyles } from '../GlobalStyle';
 
 export default function PeopleComponent(props){
     const {setPeople,people}=props;
-
     return(
-        <View style={globalStyles.inputLabelContainer}>
-
+        <View style={myStyle.peopleInputLabelContainer}>
             <TouchableOpacity style={myStyle.btn} onPress={()=>{
                 if(people==1)
                     return;
                 setPeople(people-1);
             }}>
-                <Text style={myStyle.btnTxt}>-</Text>
+
+            <Text style={myStyle.btnTxt}>-</Text>
             </TouchableOpacity>
             
-                <TextInput
-                    style={globalStyles.input}
-                    placeholder='Enter number...'
-                    onChangeText={(val)=>{
+            <TextInput
+                style={myStyle.peopeinput}
+                placeholder='Enter number...'
+                onChangeText={(val)=>{
                     setPeople(val);
-                    }}
-                    value={people}
+                }}
+                value={people}
+            />
 
-                />
             <TouchableOpacity style={myStyle.btn} onPress={()=>{
                 setPeople(people+1);
             }}>
-                <Text style={myStyle.btnTxt}>+</Text>
+            <Text style={myStyle.btnTxt}>+</Text>
             </TouchableOpacity>
+
         </View>
     );
 }
 
 const myStyle=StyleSheet.create({
-    btn:{
+    peopleInputLabelContainer:{
+        flexDirection:'row',
+        alignItems:'center',
+    },
+    peopeinput:{
+        width: 100,
+        height: 30,
+        fontSize:10,
+        marginBottom: 5,
         borderWidth:1,
         borderColor:'black',
-        borderRadius:20
+        borderRadius: 20,
+        paddingLeft: 10,
     },
     btnTxt:{
         fontSize:20,
         padding:5,
-        fontWeight:'bold'
-    }
+    },
 })

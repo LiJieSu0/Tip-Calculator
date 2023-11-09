@@ -31,7 +31,7 @@ export default function PercentageBtn(props){
                         setPercentage(percentage);
                     }}
                 >
-                    <Text>{percentage} %</Text>
+                    <Text>{percentage}%</Text>
                 </TouchableOpacity>
             </View>
 );}
@@ -43,15 +43,14 @@ const styles = StyleSheet.create({
       paddingHorizontal: 10,
     },
     button: {
-      alignItems: 'center',
-      backgroundColor: '#fff',
       padding: 5,
+      backgroundColor: '#fff',
       borderColor:'black',
       borderWidth:1,
-      borderRadius:6,
+      borderRadius:20,
     },
     selected:{
-        backgroundColor:'pink',
+        backgroundColor: '#fdc57d',
     }
 
   });
