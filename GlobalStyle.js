@@ -2,7 +2,6 @@ import { StyleSheet} from 'react-native';
 
 export const globalStyles  = StyleSheet.create({
     container: {
-        top: 50,
         flex: 1,
         backgroundColor: '#fff',
         alignItems: 'center',
@@ -23,13 +22,6 @@ export const globalStyles  = StyleSheet.create({
         borderWidth:1,
         borderColor:'black',
         marginTop:5,
-        flexDirection: 'row',
-        justifyContent: 'center',
-        alignItems: 'center',
-        borderWidth: 0.5,
-        height: 40,
-        borderRadius: 5,
-
     },
     colorStyle:{
         color:'green'
