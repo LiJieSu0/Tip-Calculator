@@ -18,10 +18,11 @@ export default function PeopleComponent(props){
             <TextInput
                 style={myStyle.peopeinput}
                 placeholder='Enter number...'
+                keyboardType='numeric'
                 onChangeText={(val)=>{
                     setPeople(val);
                 }}
-                value={people}
+                value={people.toString()}
             />
 
             <TouchableOpacity style={myStyle.btn} onPress={()=>{
