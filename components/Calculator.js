@@ -42,6 +42,7 @@ export default function Calculator(){
                 <TextInput
                     style={globalStyles.input}
                     placeholder='Total Cost'
+                    keyboardType='numeric'
                     onChangeText={(val)=>{
                         setBill(val);
                     }}
@@ -71,6 +72,7 @@ export default function Calculator(){
                 <TextInput
                     style={globalStyles.input}
                     placeholder='10'
+                    keyboardType='numeric'
                     onChangeText={(val)=>{
                         setPercentage(val)
                     }}

@@ -6,59 +6,77 @@ export default function PeopleComponent(props){
     const {setPeople,people}=props;
     return(
         <View style={myStyle.peopleInputLabelContainer}>
+
             {/* －－－－－－－－－－－－－－－－－－－－(｡･ω･｡)ﾉ－－－－－－－－－－－－－－－－ */}
-            <View style={myStyle.btn}>
-                <TouchableOpacity  onPress={()=>{
+            {/* sub people amount */}
+            <View style={myStyle.subBtn}>
+                <TouchableOpacity onPress={()=>{
                     if(people==1)
                         return;
                     setPeople(people-1);
                 }}>
-
-                <Text>-</Text>
+                <Text style={myStyle.subBtnFont}>-</Text>
                 </TouchableOpacity>
+            </View>
 
+            {/* add people amount */}
+            <View style={myStyle.addBtn}>
                 <TouchableOpacity onPress={()=>{
                     setPeople(people+1);
                 }}>
-
-                <Text>+</Text>
+                <Text style={myStyle.addBtnFont}>+</Text>
                 </TouchableOpacity>
-            </View>
-            
+            </View>   
+                
             {/* －－－－－－－－－－－－－－－－－－－－(｡･ω･｡)ﾉ－－－－－－－－－－－－－－－－ */}
             {/* people amount TextInput */}
             <TextInput
                 style={myStyle.peopeinput}
                 placeholder=' 1 '
+                keyboardType='numeric'
                 onChangeText={(val)=>{
                     setPeople(val);
                 }}
-                value={people}
+                value={people.toString()}
             />
-
-            
-
         </View>
     );
 }
 
 const myStyle=StyleSheet.create({
     peopleInputLabelContainer:{
+        width: 130,
+        height: 30,
         flexDirection:'row',
         alignItems:'center',
-    },
-    peopeinput:{
-        width: 30,
-        height: 30,
-        fontSize:10,
-        marginBottom: 5,
         borderWidth:1,
         borderColor:'black',
         borderRadius: 20,
-        paddingLeft: 10,
     },
-    btnTxt:{
-        fontSize:20,
-        padding:5,
+    peopeinput:{
+        width: 26,
+        height: 26,
+        fontSize:10,
+        borderWidth:1,
+        borderColor:'black',
+        borderRadius: 20,
+        justifyContent: 'center',
+        textAlign: 'center',
+        marginLeft: 50,
+        alignItems: 'center',
     },
+    subBtn:{
+        position: 'absolute',
+        left: 25
+    },
+    subBtnFont:{
+        fontSize:28,
+    },
+    addBtn:{
+        position: 'absolute',
+        right: 25
+    },
+    addBtnFont:{
+        fontSize:28,
+    }
 })

@@ -6,19 +6,6 @@ export default function PercentageBtn(props){
     const {percentage,idx,selectedIdx,setSelectedIdx,setPercentage}=props;
     return(
             <View>
-                {/* <Pressable 
-                    style={({pressed}) => [
-                        {
-                        backgroundColor: pressed ? 'rgb(210, 230, 255)' : 'pink',
-                        },
-                        globalStyles.wrapperCustom,
-                    ]}
-                >
-                {({pressed}) => (
-                <Text>{pressed ? "pressed" : percent +'%'}</Text>
-                )}       
-                </Pressable> */}
-
                 <TouchableOpacity
                     style={[styles.button,selectedIdx==idx?styles.selected:'']}
                     onPress={()=>{
