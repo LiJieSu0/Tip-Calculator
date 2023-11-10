@@ -11,36 +11,42 @@ export const globalStyles  = StyleSheet.create({
         borderWidth:1,
         borderColor:"black",
     },
-    font:{
-        fontSize: 16,
+    result:{
+        
     },
     wrapperCustom: {
         borderRadius: 8,
         padding: 6,
+    },
+    imageStyle:{
+        position: 'absolute',
+        marginTop: 10,
+        marginLeft: 5,
     },
     input:{
+        flex: 1,
+        height: 40,
+        marginTop:5,
         borderWidth:1,
         borderColor:'black',
-        marginTop:5,
-    },
-    colorStyle:{
-        color:'green'
+        borderRadius: 20,
+        paddingLeft: 40,
+        fontSize: 14,
+        marginBottom: 5,
     },
     inputLabelContainer:{
-        flex:1,
-        backgroundColor:'yellow',
         flexDirection:'row',
-        alignItems:'center',
-        marginBottom:10,
+        width: 300,
     },
     btnContainer:{
-        flex:1,
-        backgroundColor:'green',
+        marginTop: 7,
         flexDirection:'row',
-        justifyContent:'space-between',
+        columnGap: 18,
+        marginBottom: 5,
     },
     wrapperCustom: {
         borderRadius: 8,
         padding: 6,
-    }
+    },
 });
+
