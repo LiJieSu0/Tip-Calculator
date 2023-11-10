@@ -52,5 +52,4 @@ const styles = StyleSheet.create({
     selected:{
         backgroundColor: '#fdc57d',
     }
-
-  });
+});

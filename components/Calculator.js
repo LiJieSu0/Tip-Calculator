@@ -34,8 +34,6 @@ export default function Calculator(){
                 </View>
             </View>
             
-            
-        
             {/* total cost */}
             <View style={globalStyles.inputLabelContainer}>
                 <Image style={globalStyles.imageStyle} 

@@ -6,29 +6,37 @@ export default function PeopleComponent(props){
     const {setPeople,people}=props;
     return(
         <View style={myStyle.peopleInputLabelContainer}>
-            <TouchableOpacity style={myStyle.btn} onPress={()=>{
-                if(people==1)
-                    return;
-                setPeople(people-1);
-            }}>
+            {/* －－－－－－－－－－－－－－－－－－－－(｡･ω･｡)ﾉ－－－－－－－－－－－－－－－－ */}
+            <View style={myStyle.btn}>
+                <TouchableOpacity  onPress={()=>{
+                    if(people==1)
+                        return;
+                    setPeople(people-1);
+                }}>
 
-            <Text style={myStyle.btnTxt}>-</Text>
-            </TouchableOpacity>
+                <Text>-</Text>
+                </TouchableOpacity>
+
+                <TouchableOpacity onPress={()=>{
+                    setPeople(people+1);
+                }}>
+
+                <Text>+</Text>
+                </TouchableOpacity>
+            </View>
             
+            {/* －－－－－－－－－－－－－－－－－－－－(｡･ω･｡)ﾉ－－－－－－－－－－－－－－－－ */}
+            {/* people amount TextInput */}
             <TextInput
                 style={myStyle.peopeinput}
-                placeholder='Enter number...'
+                placeholder=' 1 '
                 onChangeText={(val)=>{
                     setPeople(val);
                 }}
                 value={people}
             />
 
-            <TouchableOpacity style={myStyle.btn} onPress={()=>{
-                setPeople(people+1);
-            }}>
-            <Text style={myStyle.btnTxt}>+</Text>
-            </TouchableOpacity>
+            
 
         </View>
     );
@@ -40,7 +48,7 @@ const myStyle=StyleSheet.create({
         alignItems:'center',
     },
     peopeinput:{
-        width: 100,
+        width: 30,
         height: 30,
         fontSize:10,
         marginBottom: 5,
