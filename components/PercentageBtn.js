@@ -1,5 +1,5 @@
 import React,{useContext, useState} from 'react';
-import { StyleSheet, Text, View, TextInput,Pressable, TouchableOpacity} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Pressable, TouchableOpacity} from 'react-native';
 import { globalStyles } from '../GlobalStyle';
 
 export default function PercentageBtn(props){
@@ -30,11 +30,15 @@ const styles = StyleSheet.create({
       paddingHorizontal: 10,
     },
     button: {
+      width: 60,
+      height: 35,
       padding: 5,
       backgroundColor: '#fff',
       borderColor:'black',
       borderWidth:1,
       borderRadius:20,
+      alignItems: 'center',
+      justifyContent: 'center',
     },
     selected:{
         backgroundColor: '#fdc57d',

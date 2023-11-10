@@ -1,6 +1,5 @@
 import React,{useState,useContext,createContext} from 'react';
-import { StyleSheet, Text, View, TextInput,TouchableOpacity, Image} from 'react-native';
-import { globalStyles } from '../GlobalStyle';
+import { StyleSheet, Text, View, TextInput,TouchableOpacity } from 'react-native';
 
 export default function PeopleComponent(props){
     const {setPeople,people}=props;
@@ -45,8 +44,8 @@ export default function PeopleComponent(props){
 
 const myStyle=StyleSheet.create({
     peopleInputLabelContainer:{
-        width: 130,
-        height: 30,
+        width: 150,
+        height: 40,
         flexDirection:'row',
         alignItems:'center',
         borderWidth:1,
@@ -54,15 +53,15 @@ const myStyle=StyleSheet.create({
         borderRadius: 20,
     },
     peopeinput:{
-        width: 26,
-        height: 26,
-        fontSize:10,
+        width: 35,
+        height: 35,
+        fontSize:16,
         borderWidth:1,
         borderColor:'black',
         borderRadius: 20,
         justifyContent: 'center',
         textAlign: 'center',
-        marginLeft: 50,
+        marginLeft: 55,
         alignItems: 'center',
     },
     subBtn:{
@@ -70,13 +69,13 @@ const myStyle=StyleSheet.create({
         left: 25
     },
     subBtnFont:{
-        fontSize:28,
+        fontSize:40,
     },
     addBtn:{
         position: 'absolute',
         right: 25
     },
     addBtnFont:{
-        fontSize:28,
+        fontSize:30,
     }
 })
