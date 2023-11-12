@@ -1,8 +1,10 @@
-import React,{useState,useContext,createContext} from 'react';
-import { StyleSheet, Text, View, TextInput,TouchableOpacity } from 'react-native';
+import React,{useState,useRef} from 'react';
+import { StyleSheet, Text, View, TextInput,TouchableOpacity, Alert } from 'react-native';
 
 export default function PeopleComponent(props){
     const {setPeople,people}=props;
+    const [peopleText,setPeopleText]=useState('1');
+    const textInputRef=useRef(null);
     return(
         <View style={myStyle.peopleInputLabelContainer}>
 
@@ -12,7 +14,11 @@ export default function PeopleComponent(props){
                 <TouchableOpacity onPress={()=>{
                     if(people==1)
                         return;
-                    setPeople(people-1);
+                    setPeople(parseInt(people)-1);
+                    let tmp=parseInt(people);
+                    tmp--;
+                    console.log(tmp);
+                    setPeopleText(tmp.toString());
                 }}>
                 <Text style={myStyle.subBtnFont}>-</Text>
                 </TouchableOpacity>
@@ -21,9 +27,13 @@ export default function PeopleComponent(props){
             {/* add people amount */}
             <View style={myStyle.addBtn}>
                 <TouchableOpacity onPress={()=>{
-                    if(people>99)
+                    if(people>=999)
                         return;
-                    setPeople(people+1);
+                    setPeople(parseInt(people)+1);
+                    console.log(people);
+                    let tmp=parseInt(people);
+                    tmp++;
+                    setPeopleText(tmp.toString());
                 }}>
                 <Text style={myStyle.addBtnFont}>+</Text>
                 </TouchableOpacity>
@@ -32,13 +42,42 @@ export default function PeopleComponent(props){
             {/* －－－－－－－－－－－－－－－－－－－－(｡･ω･｡)ﾉ－－－－－－－－－－－－－－－－ */}
             {/* people amount TextInput */}
             <TextInput
+                ref={textInputRef}
                 style={myStyle.peopeinput}
-                placeholder=' 1 '
                 keyboardType='numeric'
-                onChangeText={(val)=>{
-                    setPeople(val);
+                onFocus={()=>{
+                    setPeopleText('');
+                    setPeople(1);
+                ;}}
+                onBlur={()=>{
+                    if(peopleText==''){
+                        setPeopleText('1');
+                    }
                 }}
-                value={people.toString()}
+                onChangeText={(val)=>{
+                    
+                    const formattedValue = val.replace(/[^0-9]/g, '');
+
+
+                    if(formattedValue>999){
+                        Alert.alert('Oops!','The number is too large, please enter the people number again.',[
+                            {text:'Understood'}
+                        ])
+                        textInputRef.current.blur();
+                        setPeople(1);
+                        setPeopleText('1');
+                        return;
+                    }
+
+
+                    if(val==''){
+                        setPeople(1);
+                        setPeopleText('1');
+                    }
+                    setPeople(formattedValue);
+                    setPeopleText(formattedValue.toString());
+                }}
+                value={peopleText}
             />
         </View>
     );
