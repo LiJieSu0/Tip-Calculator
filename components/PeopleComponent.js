@@ -17,7 +17,6 @@ export default function PeopleComponent(props){
                     setPeople(parseInt(people)-1);
                     let tmp=parseInt(people);
                     tmp--;
-                    console.log(tmp);
                     setPeopleText(tmp.toString());
                 }}>
                 <Text style={myStyle.subBtnFont}>-</Text>
@@ -55,8 +54,8 @@ export default function PeopleComponent(props){
                     }
                 }}
                 onChangeText={(val)=>{
-                    
-                    const formattedValue = val.replace(/[^0-9]/g, '');
+                    const cleanedValue = val.replace(/^0+/, '');
+                    const formattedValue = cleanedValue.replace(/[^0-9]/g, '');
 
 
                     if(formattedValue>999){
@@ -70,11 +69,11 @@ export default function PeopleComponent(props){
                     }
 
 
-                    if(val==''){
+                    if(formattedValue==''){
                         setPeople(1);
                         setPeopleText('1');
                     }
-                    setPeople(formattedValue);
+                    setPeople(formattedValue==''?1:formattedValue);
                     setPeopleText(formattedValue.toString());
                 }}
                 value={peopleText}
