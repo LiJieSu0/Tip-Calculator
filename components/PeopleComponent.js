@@ -21,6 +21,8 @@ export default function PeopleComponent(props){
             {/* add people amount */}
             <View style={myStyle.addBtn}>
                 <TouchableOpacity onPress={()=>{
+                    if(people>99)
+                        return;
                     setPeople(people+1);
                 }}>
                 <Text style={myStyle.addBtnFont}>+</Text>

@@ -1,5 +1,5 @@
 import React,{useState,useContext,createContext} from 'react';
-import { StyleSheet, Text, View, TextInput,Pressable, Image} from 'react-native';
+import { StyleSheet, Text, View, TextInput,Pressable, Image, Alert} from 'react-native';
 import { globalStyles } from '../GlobalStyle';
 import PercentageBtn from './PercentageBtn';
 import PeopleComponent from './PeopleComponent';
@@ -33,15 +33,25 @@ export default function Calculator(){
             {/* total cost */}
             <View style={globalStyles.inputLabelContainer}>
                 <Image style={globalStyles.imageStyle} 
-                       source={require('../assets/cost-icon2.png')} 
+                    source={require('../assets/cost-icon2.png')} 
                 />
                 <TextInput
                     style={globalStyles.input}
                     placeholder='Total Cost'
                     keyboardType='numeric'
                     onChangeText={(val)=>{
-                        setBill(val);
+                        if(val>99999){
+                            Alert.alert('Oops!','The number is too large, please enter the bill number again.',[
+                                {text:'Understood'}
+                            ])
+                            setBill(0);
+                            return;
+                        }
+                        const match = val.match(/^\d+(\.\d{0,2})?/);
+                        const formattedValue = match ? match[0] : '';
+                        setBill(formattedValue);
                     }}
+                    value={bill.toString()}
                 />
             </View>
 
@@ -50,9 +60,10 @@ export default function Calculator(){
                 {percentageArr.map((percent,idx)=>{
                         return(
                                 <PercentageBtn
-                                    key={idx} 
-                                    percentage={percent} 
+                                    key={idx}
                                     idx={idx} 
+                                    percentage={percent}
+                                    currPercentage={percentage} 
                                     selectedIdx={selectedIdx} 
                                     setSelectedIdx={setSelectedIdx}
                                     setPercentage={setPercentage}    
@@ -66,7 +77,7 @@ export default function Calculator(){
 
                 {/* % percentage image */}
                 <Image style={globalStyles.imageStyle} 
-                       source={require('../assets/tips-icon.png')} />
+                    source={require('../assets/tips-icon.png')} />
 
                 {/* % percentage input */}
                 <TextInput
@@ -74,8 +85,11 @@ export default function Calculator(){
                     placeholder='10'
                     keyboardType='numeric'
                     onChangeText={(val)=>{
-                        setPercentage(val)
+                        const match = val.match(/^\d+(\.\d{0,2})?/);
+                        const formattedValue = match ? match[0] : '';
+                        setPercentage(formattedValue);
                     }}
+                    value={percentage.toString()}
                 />
                 {/* % percentage icon */}
                 <Text style={myStyle.percentageIcon}>%</Text>

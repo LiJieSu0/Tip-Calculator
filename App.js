@@ -1,5 +1,5 @@
 // import { StatusBar } from 'expo-status-bar';
-import { View } from 'react-native';
+import {Keyboard, View,TouchableWithoutFeedback } from 'react-native';
 import React,{useState} from 'react';
 import Calculator from './components/Calculator';
 import { myData } from './GlobalContext';
@@ -10,11 +10,13 @@ export default function App() {
 
 
   return (
-    <myData.Provider value={value}>
+    // <myData.Provider value={value}>
+    <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>
       <View style={globalStyles.container}>
         <Calculator />
       </View>
-    </myData.Provider>
+    </TouchableWithoutFeedback>
+    // </myData.Provider>
   );
 }
 
