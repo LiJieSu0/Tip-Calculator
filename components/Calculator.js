@@ -37,10 +37,10 @@ export default function Calculator(){
                 />
                 <TextInput
                     style={globalStyles.input}
-                    placeholder=''
+                    placeholder='Total Cost'
                     keyboardType='numeric'
                     onChangeText={(val)=>{
-                        if(val>99999){
+                        if(val>99999999){
                             Alert.alert('Oops!','The number is too large, please enter the bill number again.',[
                                 {text:'Understood'}
                             ])
@@ -51,7 +51,7 @@ export default function Calculator(){
                         const formattedValue = match ? match[0] : '';
                         setBill(formattedValue);
                     }}
-                    value={bill.toString()}
+                    value={bill==0?'':bill.toString()}
                 />
             </View>
 
