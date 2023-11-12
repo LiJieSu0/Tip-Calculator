@@ -37,7 +37,7 @@ export default function Calculator(){
                 />
                 <TextInput
                     style={globalStyles.input}
-                    placeholder='Total Cost'
+                    placeholder=''
                     keyboardType='numeric'
                     onChangeText={(val)=>{
                         if(val>99999){
@@ -85,6 +85,13 @@ export default function Calculator(){
                     placeholder='10'
                     keyboardType='numeric'
                     onChangeText={(val)=>{
+                        if(val>2000){
+                            Alert.alert('Oops!','The number is too large, please enter the percentage number again.',[
+                                {text:'Understood'}
+                            ])
+                            setPercentage(10);
+                            return;
+                        }
                         const match = val.match(/^\d+(\.\d{0,2})?/);
                         const formattedValue = match ? match[0] : '';
                         setPercentage(formattedValue);
