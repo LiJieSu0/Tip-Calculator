@@ -11,32 +11,29 @@ export const globalStyles  = StyleSheet.create({
         borderWidth:1,
         borderColor:"black",
     },
-    result:{
-        
-    },
     wrapperCustom: {
         borderRadius: 8,
         padding: 6,
     },
     imageStyle:{
         position: 'absolute',
-        marginTop: 10,
+        marginTop: 15,
         marginLeft: 5,
     },
     input:{
         flex: 1,
-        height: 40,
+        height: 50,
         marginTop:5,
         borderWidth:1,
         borderColor:'black',
         borderRadius: 20,
         paddingLeft: 40,
-        fontSize: 14,
+        fontSize: 18,
         marginBottom: 5,
     },
     inputLabelContainer:{
         flexDirection:'row',
-        width: 300,
+        width: 350,
     },
     btnContainer:{
         marginTop: 7,

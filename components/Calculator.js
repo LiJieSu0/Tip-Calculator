@@ -17,7 +17,7 @@ export default function Calculator(){
             <View style={myStyle.peopleSection}>
                 <View>
                     <Image style={myStyle.peopleIcon} 
-                        source={require('../assets/people-icon.png')} 
+                        source={require('../assets/people-icon2.png')} 
                     />
                     <PeopleComponent people={people} setPeople={setPeople}/>
                 </View>
@@ -25,25 +25,20 @@ export default function Calculator(){
                 <View>
                     {/* you pay and total tip  */}
                     <Text style={myStyle.payStyle}>
-                        You pay: ${ (bill*(1+percentage/100)/people).toFixed(2)}{"\n"}
-                    </Text>
-
-                    <Text style={myStyle.tipStyle}>
-                        Total Tip= ${(bill*percentage/100).toFixed(2)}
+                        You pay: {"\n"}${(bill*(1+percentage/100)/people).toFixed(2)}{"\n"}
                     </Text>
                 </View>
             </View>
             
-            
-        
             {/* total cost */}
             <View style={globalStyles.inputLabelContainer}>
                 <Image style={globalStyles.imageStyle} 
-                       source={require('../assets/cost-icon.png')} 
+                       source={require('../assets/cost-icon2.png')} 
                 />
                 <TextInput
                     style={globalStyles.input}
                     placeholder='Total Cost'
+                    keyboardType='numeric'
                     onChangeText={(val)=>{
                         setBill(val);
                     }}
@@ -68,45 +63,56 @@ export default function Calculator(){
 
             {/* tip percentage  */}
             <View style={globalStyles.inputLabelContainer}>
+
+                {/* % percentage image */}
                 <Image style={globalStyles.imageStyle} 
                        source={require('../assets/tips-icon.png')} />
+
+                {/* % percentage input */}
                 <TextInput
                     style={globalStyles.input}
                     placeholder='10'
+                    keyboardType='numeric'
                     onChangeText={(val)=>{
                         setPercentage(val)
                     }}
                 />
-                {/* % percentageIcon */}
+                {/* % percentage icon */}
                 <Text style={myStyle.percentageIcon}>%</Text>
+            </View>
+
+            {/* total tip and splite tip*/}       
+            <View>
+                <Text style={myStyle.tipStyle}>
+                    Total Tip: ${(bill*percentage/100).toFixed(2)}{'\n'}
+                    Splite Tip: ${(bill*percentage/100/people).toFixed(2)}
+                </Text>
             </View>
         </View>
 );}
 
 const myStyle=StyleSheet.create({
     peopleSection:{
-        width: 220,
+        width: 200,
         height: 100,
         paddingTop: 30,
         flexDirection:'column',
         flexWrap: 'wrap',
     },
     peopleIcon:{
-        marginLeft: 50,
+        marginLeft: 60,
         marginBottom: 2,
     },
     payStyle:{
-        width: 200,
-        height: 50,
-        fontSize: 20,
-        marginLeft: 25,
+        width: 250,
+        height: 80,
+        fontSize: 25,
+        marginLeft: 20,
         fontWeight: 'bold',
-        paddingTop: 20,
     },
     tipStyle: {
-        fontSize: 15,
-        marginLeft: 25,
-        paddingTop: 1,
+        fontSize: 10,
+        color: '#b4b1b1'
     },
     percentageIcon:{
         position: 'absolute',
