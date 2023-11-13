@@ -7,7 +7,6 @@ export default function PeopleComponent(props){
     const textInputRef=useRef(null);
     return(
         <View style={myStyle.peopleInputLabelContainer}>
-
             {/* －－－－－－－－－－－－－－－－－－－－(｡･ω･｡)ﾉ－－－－－－－－－－－－－－－－ */}
             {/* sub people amount */}
             <View style={myStyle.subBtn}>
@@ -29,7 +28,7 @@ export default function PeopleComponent(props){
                     if(people>=999)
                         return;
                     setPeople(parseInt(people)+1);
-                    console.log(people);
+                    // console.log(people);
                     let tmp=parseInt(people);
                     tmp++;
                     setPeopleText(tmp.toString());
@@ -57,7 +56,6 @@ export default function PeopleComponent(props){
                     const cleanedValue = val.replace(/^0+/, '');
                     const formattedValue = cleanedValue.replace(/[^0-9]/g, '');
 
-
                     if(formattedValue>999){
                         Alert.alert('Oops!','The number is too large, please enter the people number again.',[
                             {text:'Understood'}
@@ -67,7 +65,6 @@ export default function PeopleComponent(props){
                         setPeopleText('1');
                         return;
                     }
-
 
                     if(formattedValue==''){
                         setPeople(1);

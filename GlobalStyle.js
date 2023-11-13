@@ -6,6 +6,7 @@ export const globalStyles  = StyleSheet.create({
         backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
+        backgroundColor: '#faf1e4',
     },
     button:{
         borderWidth:1,
