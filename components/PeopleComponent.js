@@ -7,7 +7,6 @@ export default function PeopleComponent(props){
     const textInputRef=useRef(null);
     return(
         <View style={myStyle.peopleInputLabelContainer}>
-
             {/* －－－－－－－－－－－－－－－－－－－－(｡･ω･｡)ﾉ－－－－－－－－－－－－－－－－ */}
             {/* sub people amount */}
             <View style={myStyle.subBtn}>
@@ -17,7 +16,6 @@ export default function PeopleComponent(props){
                     setPeople(parseInt(people)-1);
                     let tmp=parseInt(people);
                     tmp--;
-                    console.log(tmp);
                     setPeopleText(tmp.toString());
                 }}>
                 <Text style={myStyle.subBtnFont}>-</Text>
@@ -30,7 +28,7 @@ export default function PeopleComponent(props){
                     if(people>=999)
                         return;
                     setPeople(parseInt(people)+1);
-                    console.log(people);
+                    // console.log(people);
                     let tmp=parseInt(people);
                     tmp++;
                     setPeopleText(tmp.toString());
@@ -55,9 +53,8 @@ export default function PeopleComponent(props){
                     }
                 }}
                 onChangeText={(val)=>{
-                    
-                    const formattedValue = val.replace(/[^0-9]/g, '');
-
+                    const cleanedValue = val.replace(/^0+/, '');
+                    const formattedValue = cleanedValue.replace(/[^0-9]/g, '');
 
                     if(formattedValue>999){
                         Alert.alert('Oops!','The number is too large, please enter the people number again.',[
@@ -69,12 +66,11 @@ export default function PeopleComponent(props){
                         return;
                     }
 
-
-                    if(val==''){
+                    if(formattedValue==''){
                         setPeople(1);
                         setPeopleText('1');
                     }
-                    setPeople(formattedValue);
+                    setPeople(formattedValue==''?1:formattedValue);
                     setPeopleText(formattedValue.toString());
                 }}
                 value={peopleText}
