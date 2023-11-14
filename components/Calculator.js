@@ -154,7 +154,7 @@ const myStyle=StyleSheet.create({
         paddingHorizontal: 28, 
     },
     elevation: {
-        elevation: 21,
+        elevation: 20,
         shadowColor: '#52006A',
       },
 })
