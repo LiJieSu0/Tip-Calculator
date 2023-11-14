@@ -16,25 +16,29 @@ export const globalStyles  = StyleSheet.create({
         borderRadius: 8,
         padding: 6,
     },
-    imageStyle:{
+    iconStyle:{
+        fontSize: 30,
         position: 'absolute',
-        marginTop: 18,
-        marginLeft: 15,
+        marginTop: 30,
+        marginLeft: 8,
     },
+    // public total cost and custom tip input
     input:{
         flex: 1,
-        height: 50,
-        marginTop:5,
+        width: '100%',
+        height: 60,
+        marginTop: 15,
         borderWidth:1,
         borderColor:'black',
         borderRadius: 20,
         paddingLeft: 40,
         fontSize: 18,
-        marginBottom: 5,
+        marginBottom: 10,
     },
+
+    // total input 
     inputLabelContainer:{
         flexDirection:'row',
-        width: 350,
     },
     btnContainer:{
         marginTop: 7,

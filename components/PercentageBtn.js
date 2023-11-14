@@ -27,23 +27,23 @@ const styles = StyleSheet.create({
     container: {
         flex: 1,
         justifyContent: 'center',
-        paddingHorizontal: 10,
     },
     button: {
-        width: 60,
-        height: 35,
-        padding: 5,
+        width: 65,
+        height: 50,
+        padding: 4,
         backgroundColor: '#fff',
         borderColor:'black',
         borderWidth:1,
         borderRadius:20,
         alignItems: 'center',
         justifyContent: 'center',
+        marginTop: 5,
     },
     selected:{
         backgroundColor: '#fdc57d',
     },
     percentageStyle:{
-        fontSize: 16,
+        fontSize: 18,
     }
 });
