@@ -4,6 +4,10 @@ import { globalStyles } from '../GlobalStyle';
 import PercentageBtn from './PercentageBtn';
 import PeopleComponent from './PeopleComponent';
 
+import { Ionicons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons'; 
+import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+
 export default function Calculator(){
     const [bill, setBill]=useState(0);
     const [people,setPeople]=useState(1);
@@ -17,9 +21,8 @@ export default function Calculator(){
                 {/* people component */}
                 <View style={myStyle.peopleSection}>
                     <View>
-                        <Image style={myStyle.peopleIcon} 
-                            source={require('../assets/people-icon2.png')} 
-                        />
+                        <Ionicons name="ios-people-outline" size={24} color="black" 
+                                  style={myStyle.peopleIcon}/>
                         <PeopleComponent people={people} setPeople={setPeople}/>
                     </View>
 
@@ -33,9 +36,8 @@ export default function Calculator(){
                 
                 {/* total cost */}
                 <View style={globalStyles.inputLabelContainer}>
-                    <Image style={globalStyles.imageStyle} 
-                        source={require('../assets/cost-icon2.png')} 
-                    />
+                    <MaterialIcons name="attach-money" size={24} color="black" 
+                                   style={globalStyles.imageStyle}/>
                     <TextInput
                         style={globalStyles.input}
                         placeholder='Total Cost'
@@ -75,14 +77,12 @@ export default function Calculator(){
 
                 {/* tip percentage  */}
                 <View style={globalStyles.inputLabelContainer}>
-                    {/* % percentage image */}
-                    <Image style={globalStyles.imageStyle} 
-                        source={require('../assets/tips-icon.png')} />
-
+                    <MaterialCommunityIcons name="lightbulb-outline" size={24} color="black" 
+                                            style={globalStyles.imageStyle} />       
                     {/* % percentage input */}
                     <TextInput
                         style={globalStyles.input}
-                        placeholder='10'
+                        placeholder='Custom tip'
                         keyboardType='numeric'
                         onChangeText={(val)=>{
                             if(val>2000){
@@ -141,20 +141,26 @@ const myStyle=StyleSheet.create({
         right: 0,
         alignSelf: 'center',
         paddingRight: 8,
-        fontSize: 18
+        fontSize: 20
     },
     card:{
         width: 400,
         height: 400,
         alignContent: 'center',
         backgroundColor: 'white',
-        // borderWidth: 1,
         borderRadius: 30,
         paddingVertical: 45,
-        paddingHorizontal: 28, 
+        paddingHorizontal: 28,
+        // shadowColor: '#52006A',
+        shadowOffset:{
+            width:6,
+            height: 6,
+        },
+        shadowOpacity: 0.6,
+        shadowRadius: 4,
     },
     elevation: {
         elevation: 20,
         shadowColor: '#52006A',
-      },
+    },
 })

@@ -18,8 +18,8 @@ export const globalStyles  = StyleSheet.create({
     },
     imageStyle:{
         position: 'absolute',
-        marginTop: 15,
-        marginLeft: 5,
+        marginTop: 18,
+        marginLeft: 15,
     },
     input:{
         flex: 1,

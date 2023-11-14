@@ -18,7 +18,7 @@ export default function PercentageBtn(props){
                         setPercentage(percentage);
                     }}
                 >
-                    <Text>{percentage}%</Text>
+                    <Text style={styles.percentageStyle}>{percentage}%</Text>
                 </TouchableOpacity>
             </View>
 );}
@@ -42,5 +42,8 @@ const styles = StyleSheet.create({
     },
     selected:{
         backgroundColor: '#fdc57d',
+    },
+    percentageStyle:{
+        fontSize: 16,
     }
 });
