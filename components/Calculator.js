@@ -13,80 +13,102 @@ export default function Calculator(){
 
     return(
         <View>
-            {/* people component */}
-            <View style={myStyle.peopleSection}>
-                <View>
-                    <Image style={myStyle.peopleIcon} 
-                        source={require('../assets/people-icon2.png')} 
+            <View style={[myStyle.card, myStyle.elevation]}>
+                {/* people component */}
+                <View style={myStyle.peopleSection}>
+                    <View>
+                        <Image style={myStyle.peopleIcon} 
+                            source={require('../assets/people-icon2.png')} 
+                        />
+                        <PeopleComponent people={people} setPeople={setPeople}/>
+                    </View>
+
+                    <View>
+                        {/* you pay and total tip  */}
+                        <Text style={myStyle.payStyle}>
+                            You pay: {"\n"}${(bill*(1+percentage/100)/people).toFixed(2)}{"\n"}
+                        </Text>
+                    </View>
+                </View>
+                
+                {/* total cost */}
+                <View style={globalStyles.inputLabelContainer}>
+                    <Image style={globalStyles.imageStyle} 
+                        source={require('../assets/cost-icon2.png')} 
                     />
-                    <PeopleComponent people={people} setPeople={setPeople}/>
+                    <TextInput
+                        style={globalStyles.input}
+                        placeholder='Total Cost'
+                        keyboardType='numeric'
+                        onChangeText={(val)=>{
+                            if(val>99999999){
+                                Alert.alert('Oops!','The number is too large, please enter the bill number again.',[
+                                    {text:'Understood'}
+                                ])
+                                setBill(0);
+                                return;
+                            }
+                            const match = val.match(/^\d+(\.\d{0,2})?/);
+                            const formattedValue = match ? match[0] : '';
+                            setBill(formattedValue);
+                        }}
+                        value={bill==0?'':bill.toString()}
+                    />
                 </View>
 
+                {/* percentage button */}
+                <View style={globalStyles.btnContainer}>
+                    {percentageArr.map((percent,idx)=>{
+                            return(
+                                    <PercentageBtn
+                                        key={idx}
+                                        idx={idx} 
+                                        percentage={percent}
+                                        currPercentage={percentage} 
+                                        selectedIdx={selectedIdx} 
+                                        setSelectedIdx={setSelectedIdx}
+                                        setPercentage={setPercentage}    
+                                    />
+                                )
+                    })}
+                </View>
+
+                {/* tip percentage  */}
+                <View style={globalStyles.inputLabelContainer}>
+                    {/* % percentage image */}
+                    <Image style={globalStyles.imageStyle} 
+                        source={require('../assets/tips-icon.png')} />
+
+                    {/* % percentage input */}
+                    <TextInput
+                        style={globalStyles.input}
+                        placeholder='10'
+                        keyboardType='numeric'
+                        onChangeText={(val)=>{
+                            if(val>2000){
+                                Alert.alert('Oops!','The number is too large, please enter the percentage number again.',[
+                                    {text:'Understood'}
+                                ])
+                                setPercentage(10);
+                                return;
+                            }
+                            const match = val.match(/^\d+(\.\d{0,2})?/);
+                            const formattedValue = match ? match[0] : '';
+                            setPercentage(formattedValue);
+                        }}
+                        value={percentage.toString()}
+                    />
+                    {/* % percentage icon */}
+                    <Text style={myStyle.percentageIcon}>%</Text>
+                </View>
+
+                {/* total tip and splite tip*/}       
                 <View>
-                    {/* you pay and total tip  */}
-                    <Text style={myStyle.payStyle}>
-                        You pay: {"\n"}${(bill*(1+percentage/100)/people).toFixed(2)}{"\n"}
+                    <Text style={myStyle.tipStyle}>
+                        Total Tip: ${(bill*percentage/100).toFixed(2)}{'\n'}
+                        Splite Tip: ${(bill*percentage/100/people).toFixed(2)}
                     </Text>
                 </View>
-            </View>
-            
-            {/* total cost */}
-            <View style={globalStyles.inputLabelContainer}>
-                <Image style={globalStyles.imageStyle} 
-                       source={require('../assets/cost-icon2.png')} 
-                />
-                <TextInput
-                    style={globalStyles.input}
-                    placeholder='Total Cost'
-                    keyboardType='numeric'
-                    onChangeText={(val)=>{
-                        setBill(val);
-                    }}
-                />
-            </View>
-
-            {/* percentage button */}
-            <View style={globalStyles.btnContainer}>
-                {percentageArr.map((percent,idx)=>{
-                        return(
-                                <PercentageBtn
-                                    key={idx} 
-                                    percentage={percent} 
-                                    idx={idx} 
-                                    selectedIdx={selectedIdx} 
-                                    setSelectedIdx={setSelectedIdx}
-                                    setPercentage={setPercentage}    
-                                />
-                            )
-                })}
-            </View>
-
-            {/* tip percentage  */}
-            <View style={globalStyles.inputLabelContainer}>
-
-                {/* % percentage image */}
-                <Image style={globalStyles.imageStyle} 
-                       source={require('../assets/tips-icon.png')} />
-
-                {/* % percentage input */}
-                <TextInput
-                    style={globalStyles.input}
-                    placeholder='10'
-                    keyboardType='numeric'
-                    onChangeText={(val)=>{
-                        setPercentage(val)
-                    }}
-                />
-                {/* % percentage icon */}
-                <Text style={myStyle.percentageIcon}>%</Text>
-            </View>
-
-            {/* total tip and splite tip*/}       
-            <View>
-                <Text style={myStyle.tipStyle}>
-                    Total Tip: ${(bill*percentage/100).toFixed(2)}{'\n'}
-                    Splite Tip: ${(bill*percentage/100/people).toFixed(2)}
-                </Text>
             </View>
         </View>
 );}
@@ -95,7 +117,7 @@ const myStyle=StyleSheet.create({
     peopleSection:{
         width: 200,
         height: 100,
-        paddingTop: 30,
+        paddingTop: 25,
         flexDirection:'column',
         flexWrap: 'wrap',
     },
@@ -120,5 +142,19 @@ const myStyle=StyleSheet.create({
         alignSelf: 'center',
         paddingRight: 8,
         fontSize: 18
-    }
+    },
+    card:{
+        width: 400,
+        height: 400,
+        alignContent: 'center',
+        backgroundColor: 'white',
+        // borderWidth: 1,
+        borderRadius: 30,
+        paddingVertical: 45,
+        paddingHorizontal: 28, 
+    },
+    elevation: {
+        elevation: 20,
+        shadowColor: '#52006A',
+      },
 })
