@@ -1,5 +1,7 @@
 import React,{useState,useRef} from 'react';
 import { StyleSheet, Text, View, TextInput,TouchableOpacity, Alert } from 'react-native';
+import { Feather } from '@expo/vector-icons'; 
+import { AntDesign } from '@expo/vector-icons'; 
 
 export default function PeopleComponent(props){
     const {setPeople,people}=props;
@@ -18,7 +20,9 @@ export default function PeopleComponent(props){
                     tmp--;
                     setPeopleText(tmp.toString());
                 }}>
-                <Text style={myStyle.subBtnFont}>-</Text>
+                {/* <Text style={myStyle.subBtnFont}>-</Text> */}
+                {/* <AntDesign name="plus" size={24} color="black" /> */}
+                <AntDesign name="minus" size={24} color="black" />
                 </TouchableOpacity>
             </View>
 
@@ -33,7 +37,10 @@ export default function PeopleComponent(props){
                     tmp++;
                     setPeopleText(tmp.toString());
                 }}>
-                <Text style={myStyle.addBtnFont}>+</Text>
+                {/* <Text style={myStyle.addBtnFont}>+</Text> */}
+                <AntDesign name="plus" size={24} color="black" />
+                {/* <Feather name="plus" size={24} color="black" /> */}
+                {/* <AntDesign name="pluscircleo" size={24} color="black" /> */}
                 </TouchableOpacity>
             </View>   
                 
@@ -103,14 +110,14 @@ const myStyle=StyleSheet.create({
     },
     subBtn:{
         position: 'absolute',
-        left: 25
+        left: 20
     },
     subBtnFont:{
         fontSize:40,
     },
     addBtn:{
         position: 'absolute',
-        right: 25
+        right: 23
     },
     addBtnFont:{
         fontSize:30,
