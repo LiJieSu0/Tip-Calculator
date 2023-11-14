@@ -8,7 +8,6 @@ export default function App() {
   
   const [value,setValue]=useState(1);
 
-
   return (
     // <myData.Provider value={value}>
     <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>
