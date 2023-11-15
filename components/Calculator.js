@@ -8,6 +8,7 @@ import PeopleComponent from './PeopleComponent';
 import CostComponent from './CostComponent';
 import PercentageInputComponent from './PercentageInputComponent';
 import SummaryComponent from './SummaryComponent';
+import ShareBtnComponent from './ShareBtnComponent';
 
 import { Ionicons } from '@expo/vector-icons';
 
@@ -73,6 +74,10 @@ export default function Calculator(){
                     percentage={percentage}
                     people={people}
                 />
+
+                {/* Share button */}
+                <ShareBtnComponent/>
+
             </View>
 );}
 
