@@ -9,6 +9,7 @@ export default function PeopleComponent(props){
     const textInputRef=useRef(null);
     return(
         <View style={myStyle.peopleInputLabelContainer}>
+
             {/* －－－－－－－－－－－－－－－－－－－－(｡･ω･｡)ﾉ－－－－－－－－－－－－－－－－ */}
             {/* sub people amount */}
             <View style={myStyle.subBtn}>

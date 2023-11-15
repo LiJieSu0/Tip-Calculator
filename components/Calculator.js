@@ -5,11 +5,13 @@ import { globalStyles } from '../GlobalStyle';
 
 import PercentageBtn from './PercentageBtn';
 import PeopleComponent from './PeopleComponent';
+import CostComponent from './CostComponent';
+import PercentageInputComponent from './PercentageInputComponent';
 import SummaryComponent from './SummaryComponent';
 
-import { Ionicons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons'; 
 import { MaterialCommunityIcons } from '@expo/vector-icons'; 
+import { Ionicons } from '@expo/vector-icons';
 
 export default function Calculator(){
     const [bill, setBill]=useState(0);
@@ -24,13 +26,12 @@ export default function Calculator(){
                 <View style={myStyle.peopleSection}>
                     <View>
                         <Ionicons name="ios-people-outline" 
-                                    size={35} 
-                                    color="black" 
-                                    style={myStyle.peopleIcon}
+                            size={35} 
+                            color="black" 
+                            style={myStyle.peopleIcon}
                         />
                         <PeopleComponent people={people} setPeople={setPeople}/>
                     </View>
-
                     <View>
                         {/* you pay and total tip  */}
                         <Text style={myStyle.payStyle}>
@@ -40,29 +41,10 @@ export default function Calculator(){
                 </View>
                 
                 {/* total cost */}
-                <View style={globalStyles.inputLabelContainer}>
-                        <MaterialIcons name="attach-money" 
-                                        size={20} color="black" 
-                                        style={globalStyles.iconStyle}/>
-                            <TextInput
-                                style={globalStyles.input}
-                                placeholder='Total Cost'
-                                keyboardType='numeric'
-                                onChangeText={(val)=>{
-                                    if(val>99999999){
-                                        Alert.alert('Oops!','The number is too large, please enter the bill number again.',[
-                                            {text:'Understood'}
-                                        ])
-                                        setBill(0);
-                                        return;
-                                    }
-                                    const match = val.match(/^\d+(\.\d{0,2})?/);
-                                    const formattedValue = match ? match[0] : '';
-                                    setBill(formattedValue);
-                                }}
-                                value={bill==0?'':bill.toString()}
-                            />
-                </View>
+                <CostComponent 
+                    setBill={setBill}
+                    bill={bill}
+                />
 
                 {/* percentage button */}
                 <View style={globalStyles.btnContainer}>
@@ -82,45 +64,16 @@ export default function Calculator(){
                 </View>
 
                 {/* tip percentage  */}
-                <View style={globalStyles.inputLabelContainer}>
-                    <MaterialCommunityIcons name="lightbulb-outline" size={24} color="black" 
-                                            style={globalStyles.iconStyle} />       
-                    {/* % percentage input */}
-                    <TextInput
-                        style={globalStyles.input}
-                        placeholder='Custom tip'
-                        keyboardType='numeric'
-                        onChangeText={(val)=>{
-                            if(val>2000){
-                                Alert.alert('Oops!','The number is too large, please enter the percentage number again.',[
-                                    {text:'Understood'}
-                                ])
-                                setPercentage(10);
-                                return;
-                            }
-                            const match = val.match(/^\d+(\.\d{0,2})?/);
-                            const formattedValue = match ? match[0] : '';
-                            setPercentage(formattedValue);
-                        }}
-                        value={percentage.toString()}
-                    />
-                    {/* % percentage icon */}
-                    <Text style={myStyle.percentageIcon}>%</Text>
-                </View>
-
+                <PercentageInputComponent
+                    setPercentage={setPercentage}
+                    percentage={percentage}
+                />
                 {/* total tip and splite tip*/}       
-
                 <SummaryComponent 
                     bill={bill}
                     percentage={percentage}
                     people={people}
                 />
-                {/* <View>
-                    <Text style={myStyle.tipStyle}>
-                        Total Tip: ${(bill*percentage/100).toFixed(2)}{'\n'}
-                        Split Tip: ${(bill*percentage/100/people).toFixed(2)}
-                    </Text>
-                </View> */}
             </View>
 );}
 
@@ -147,14 +100,7 @@ const myStyle=StyleSheet.create({
         fontSize: 12,
         color: '#b4b1b1'
     },
-    percentageIcon:{
-        position: 'absolute',
-        right: 0,
-        alignSelf: 'center',
-        paddingTop: 5,
-        paddingRight: 15,
-        fontSize: 28
-    },
+
     card:{
         width: '100%',
         height: 'auto',
