@@ -1,8 +1,11 @@
 import React,{useState,useContext,createContext} from 'react';
 import { StyleSheet, Text, View, TextInput, Pressable, Alert} from 'react-native';
 import { globalStyles } from '../GlobalStyle';
+
+
 import PercentageBtn from './PercentageBtn';
 import PeopleComponent from './PeopleComponent';
+import SummaryComponent from './SummaryComponent';
 
 import { Ionicons } from '@expo/vector-icons';
 import { MaterialIcons } from '@expo/vector-icons'; 
@@ -21,9 +24,9 @@ export default function Calculator(){
                 <View style={myStyle.peopleSection}>
                     <View>
                         <Ionicons name="ios-people-outline" 
-                                  size={35} 
-                                  color="black" 
-                                  style={myStyle.peopleIcon}
+                                    size={35} 
+                                    color="black" 
+                                    style={myStyle.peopleIcon}
                         />
                         <PeopleComponent people={people} setPeople={setPeople}/>
                     </View>
@@ -31,7 +34,7 @@ export default function Calculator(){
                     <View>
                         {/* you pay and total tip  */}
                         <Text style={myStyle.payStyle}>
-                            You pay: {"\n"}${(bill*(1+percentage/100)/people).toFixed(2)}{"\n"}
+                            You pay: {"\n"}${ (Math.ceil((bill*(1+percentage/100)/people)*100)/100).toFixed(2)}{"\n"}
                         </Text>
                     </View>
                 </View>
@@ -39,8 +42,8 @@ export default function Calculator(){
                 {/* total cost */}
                 <View style={globalStyles.inputLabelContainer}>
                         <MaterialIcons name="attach-money" 
-                                       size={20} color="black" 
-                                       style={globalStyles.iconStyle}/>
+                                        size={20} color="black" 
+                                        style={globalStyles.iconStyle}/>
                             <TextInput
                                 style={globalStyles.input}
                                 placeholder='Total Cost'
@@ -59,7 +62,6 @@ export default function Calculator(){
                                 }}
                                 value={bill==0?'':bill.toString()}
                             />
-                   
                 </View>
 
                 {/* percentage button */}
@@ -107,12 +109,18 @@ export default function Calculator(){
                 </View>
 
                 {/* total tip and splite tip*/}       
-                <View>
+
+                <SummaryComponent 
+                    bill={bill}
+                    percentage={percentage}
+                    people={people}
+                />
+                {/* <View>
                     <Text style={myStyle.tipStyle}>
                         Total Tip: ${(bill*percentage/100).toFixed(2)}{'\n'}
                         Split Tip: ${(bill*percentage/100/people).toFixed(2)}
                     </Text>
-                </View>
+                </View> */}
             </View>
 );}
 
