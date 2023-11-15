@@ -1,5 +1,5 @@
 import React,{useState,useContext,createContext} from 'react';
-import { StyleSheet, Text, View, TextInput,Pressable, Image} from 'react-native';
+import { StyleSheet, Text, View, TextInput, Pressable, Alert} from 'react-native';
 import { globalStyles } from '../GlobalStyle';
 import PercentageBtn from './PercentageBtn';
 import PeopleComponent from './PeopleComponent';
@@ -16,13 +16,15 @@ export default function Calculator(){
     const percentageArr=[10,15,18,20];
 
     return(
-        <View>
-            <View style={[myStyle.card, myStyle.elevation]}>
+        <View style={[myStyle.card, myStyle.elevation]}>
                 {/* people component */}
                 <View style={myStyle.peopleSection}>
                     <View>
-                        <Ionicons name="ios-people-outline" size={24} color="black" 
-                                  style={myStyle.peopleIcon}/>
+                        <Ionicons name="ios-people-outline" 
+                                  size={35} 
+                                  color="black" 
+                                  style={myStyle.peopleIcon}
+                        />
                         <PeopleComponent people={people} setPeople={setPeople}/>
                     </View>
 
@@ -36,26 +38,28 @@ export default function Calculator(){
                 
                 {/* total cost */}
                 <View style={globalStyles.inputLabelContainer}>
-                    <MaterialIcons name="attach-money" size={24} color="black" 
-                                   style={globalStyles.imageStyle}/>
-                    <TextInput
-                        style={globalStyles.input}
-                        placeholder='Total Cost'
-                        keyboardType='numeric'
-                        onChangeText={(val)=>{
-                            if(val>99999999){
-                                Alert.alert('Oops!','The number is too large, please enter the bill number again.',[
-                                    {text:'Understood'}
-                                ])
-                                setBill(0);
-                                return;
-                            }
-                            const match = val.match(/^\d+(\.\d{0,2})?/);
-                            const formattedValue = match ? match[0] : '';
-                            setBill(formattedValue);
-                        }}
-                        value={bill==0?'':bill.toString()}
-                    />
+                        <MaterialIcons name="attach-money" 
+                                       size={20} color="black" 
+                                       style={globalStyles.iconStyle}/>
+                            <TextInput
+                                style={globalStyles.input}
+                                placeholder='Total Cost'
+                                keyboardType='numeric'
+                                onChangeText={(val)=>{
+                                    if(val>99999999){
+                                        Alert.alert('Oops!','The number is too large, please enter the bill number again.',[
+                                            {text:'Understood'}
+                                        ])
+                                        setBill(0);
+                                        return;
+                                    }
+                                    const match = val.match(/^\d+(\.\d{0,2})?/);
+                                    const formattedValue = match ? match[0] : '';
+                                    setBill(formattedValue);
+                                }}
+                                value={bill==0?'':bill.toString()}
+                            />
+                   
                 </View>
 
                 {/* percentage button */}
@@ -78,7 +82,7 @@ export default function Calculator(){
                 {/* tip percentage  */}
                 <View style={globalStyles.inputLabelContainer}>
                     <MaterialCommunityIcons name="lightbulb-outline" size={24} color="black" 
-                                            style={globalStyles.imageStyle} />       
+                                            style={globalStyles.iconStyle} />       
                     {/* % percentage input */}
                     <TextInput
                         style={globalStyles.input}
@@ -106,52 +110,52 @@ export default function Calculator(){
                 <View>
                     <Text style={myStyle.tipStyle}>
                         Total Tip: ${(bill*percentage/100).toFixed(2)}{'\n'}
-                        Splite Tip: ${(bill*percentage/100/people).toFixed(2)}
+                        Split Tip: ${(bill*percentage/100/people).toFixed(2)}
                     </Text>
                 </View>
             </View>
-        </View>
 );}
 
 const myStyle=StyleSheet.create({
+    peopleIcon:{
+        marginLeft: 55,
+    },
     peopleSection:{
         width: 200,
-        height: 100,
+        height: 120,
         paddingTop: 25,
         flexDirection:'column',
         flexWrap: 'wrap',
     },
-    peopleIcon:{
-        marginLeft: 60,
-        marginBottom: 2,
-    },
     payStyle:{
         width: 250,
         height: 80,
-        fontSize: 25,
-        marginLeft: 20,
+        fontSize: 28,
+        marginLeft: 10,
         fontWeight: 'bold',
+        marginTop: 15,
     },
     tipStyle: {
-        fontSize: 10,
+        fontSize: 12,
         color: '#b4b1b1'
     },
     percentageIcon:{
         position: 'absolute',
         right: 0,
         alignSelf: 'center',
-        paddingRight: 8,
-        fontSize: 20
+        paddingTop: 5,
+        paddingRight: 15,
+        fontSize: 28
     },
     card:{
-        width: 400,
-        height: 400,
+        width: '100%',
+        height: 'auto',
         alignContent: 'center',
         backgroundColor: 'white',
         borderRadius: 30,
         paddingVertical: 45,
-        paddingHorizontal: 28,
-        // shadowColor: '#52006A',
+        paddingHorizontal: 10,
+        marginBottom: 100,
         shadowOffset:{
             width:6,
             height: 6,

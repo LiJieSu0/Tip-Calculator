@@ -1,6 +1,6 @@
 import React,{useState,useRef} from 'react';
 import { StyleSheet, Text, View, TextInput,TouchableOpacity, Alert } from 'react-native';
-import { Feather } from '@expo/vector-icons'; 
+// import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons'; 
 
 export default function PeopleComponent(props){
@@ -37,10 +37,7 @@ export default function PeopleComponent(props){
                     tmp++;
                     setPeopleText(tmp.toString());
                 }}>
-                {/* <Text style={myStyle.addBtnFont}>+</Text> */}
                 <AntDesign name="plus" size={24} color="black" />
-                {/* <Feather name="plus" size={24} color="black" /> */}
-                {/* <AntDesign name="pluscircleo" size={24} color="black" /> */}
                 </TouchableOpacity>
             </View>   
                 
@@ -89,17 +86,16 @@ export default function PeopleComponent(props){
 const myStyle=StyleSheet.create({
     peopleInputLabelContainer:{
         width: 150,
-        height: 40,
+        height: 50,
         flexDirection:'row',
         alignItems:'center',
         borderWidth:1,
-        borderColor:'black',
         borderRadius: 20,
     },
     peopeinput:{
         width: 35,
         height: 35,
-        fontSize:16,
+        fontSize: 20,
         borderWidth:1,
         borderColor:'black',
         borderRadius: 20,
@@ -113,13 +109,13 @@ const myStyle=StyleSheet.create({
         left: 20
     },
     subBtnFont:{
-        fontSize:40,
+        fontSize:60,
     },
     addBtn:{
         position: 'absolute',
         right: 23
     },
     addBtnFont:{
-        fontSize:30,
+        fontSize:60,
     }
 })
