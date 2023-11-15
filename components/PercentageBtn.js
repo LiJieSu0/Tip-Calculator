@@ -1,5 +1,5 @@
-import React,{useContext, useState} from 'react';
-import { StyleSheet, Text, View, TextInput, Pressable, TouchableOpacity,Alert} from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View,   TouchableOpacity} from 'react-native';
 import { globalStyles } from '../GlobalStyle';
 
 export default function PercentageBtn(props){

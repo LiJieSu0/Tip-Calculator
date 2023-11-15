@@ -1,5 +1,5 @@
-import React,{useState,useContext,createContext} from 'react';
-import { StyleSheet, Text, View, TextInput, Pressable, Alert} from 'react-native';
+import React,{useState} from 'react';
+import { StyleSheet, Text, View} from 'react-native';
 import { globalStyles } from '../GlobalStyle';
 
 
@@ -9,8 +9,6 @@ import CostComponent from './CostComponent';
 import PercentageInputComponent from './PercentageInputComponent';
 import SummaryComponent from './SummaryComponent';
 
-import { MaterialIcons } from '@expo/vector-icons'; 
-import { MaterialCommunityIcons } from '@expo/vector-icons'; 
 import { Ionicons } from '@expo/vector-icons';
 
 export default function Calculator(){
@@ -19,10 +17,10 @@ export default function Calculator(){
     const [percentage,setPercentage]=useState(10);
     const [selectedIdx,setSelectedIdx]=useState(-1);
     const percentageArr=[10,15,18,20];
+    const perCost=(bill*(1+percentage/100)/people).toFixed(2);
 
     return(
         <View style={[myStyle.card, myStyle.elevation]}>
-                {/* people component */}
                 <View style={myStyle.peopleSection}>
                     <View>
                         <Ionicons name="ios-people-outline" 
@@ -30,12 +28,13 @@ export default function Calculator(){
                             color="black" 
                             style={myStyle.peopleIcon}
                         />
+                        {/* people component */}
                         <PeopleComponent people={people} setPeople={setPeople}/>
                     </View>
                     <View>
                         {/* you pay and total tip  */}
                         <Text style={myStyle.payStyle}>
-                            You pay: {"\n"}${ (Math.ceil((bill*(1+percentage/100)/people)*100)/100).toFixed(2)}{"\n"}
+                            You pay: {"\n"}${ perCost}{"\n"}
                         </Text>
                     </View>
                 </View>
