@@ -56,7 +56,6 @@ export default function Calculator(){
                         setSelectedIdx={setSelectedIdx}
                         setPercentage={setPercentage}    
                     />
-
                 </View>
 
                 {/* tip percentage  */}
@@ -66,12 +65,7 @@ export default function Calculator(){
                     bill={bill}
                     people={people}
                 />
-                {/* total tip and splite tip*/}       
-                <SummaryComponent 
-                    bill={bill}
-                    people={people}
-                    percentage={percentage}
-                />
+
 
                 {/* Share button */}
                 <ShareBtnComponent/>

@@ -2,9 +2,10 @@ import { MaterialCommunityIcons } from '@expo/vector-icons';
 import { View, TextInput,  Alert, StyleSheet,Text} from 'react-native';
 import { globalStyles } from '../GlobalStyle';
 
+import SummaryComponent from './SummaryComponent';
 
 export default function PercentageInputComponent(props){
-    const {setPercentage,percentage}=props
+    const {setPercentage,percentage,bill,people}=props
     return(
                 <View style={globalStyles.inputLabelContainer}>
                     <MaterialCommunityIcons name="lightbulb-outline" size={24} color="black" 
@@ -30,6 +31,15 @@ export default function PercentageInputComponent(props){
                     />
                     {/* % percentage icon */}
                     <Text style={myStyle.percentageIcon}>%</Text>
+
+                    
+                    {/* total tip and splite tip*/}    
+                    <SummaryComponent 
+                        bill={bill}
+                        people={people}
+                        percentage={percentage}
+                    />   
+
                 </View>
     )
 }
