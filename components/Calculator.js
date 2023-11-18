@@ -6,6 +6,7 @@ import { globalStyles } from '../GlobalStyle';
 import PercentageBtn from './PercentageBtn';
 import PeopleComponent from './PeopleComponent';
 import CostComponent from './CostComponent';
+import PercentageBtnComponent from './PercentageBtnComponent';
 import PercentageInputComponent from './PercentageInputComponent';
 import SummaryComponent from './SummaryComponent';
 import ShareBtnComponent from './ShareBtnComponent';
@@ -48,31 +49,28 @@ export default function Calculator(){
 
                 {/* percentage button */}
                 <View style={globalStyles.btnContainer}>
-                    {percentageArr.map((percent,idx)=>{
-                            return(
-                                    <PercentageBtn
-                                        key={idx}
-                                        idx={idx} 
-                                        percentage={percent}
-                                        currPercentage={percentage} 
-                                        selectedIdx={selectedIdx} 
-                                        setSelectedIdx={setSelectedIdx}
-                                        setPercentage={setPercentage}    
-                                    />
-                                )
-                    })}
+                    <PercentageBtnComponent
+                        percentageArr={percentageArr}
+                        currPercentage={percentage} 
+                        selectedIdx={selectedIdx} 
+                        setSelectedIdx={setSelectedIdx}
+                        setPercentage={setPercentage}    
+                    />
+
                 </View>
 
                 {/* tip percentage  */}
                 <PercentageInputComponent
                     setPercentage={setPercentage}
                     percentage={percentage}
+                    bill={bill}
+                    people={people}
                 />
                 {/* total tip and splite tip*/}       
                 <SummaryComponent 
                     bill={bill}
-                    percentage={percentage}
                     people={people}
+                    percentage={percentage}
                 />
 
                 {/* Share button */}
