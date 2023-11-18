@@ -3,12 +3,10 @@ import { StyleSheet, Text, View} from 'react-native';
 import { globalStyles } from '../GlobalStyle';
 
 
-import PercentageBtn from './PercentageBtn';
-import PeopleComponent from './PeopleComponent';
+import PeopleInput from './PeopleInput';
 import CostComponent from './CostComponent';
 import PercentageBtnComponent from './PercentageBtnComponent';
 import PercentageInputComponent from './PercentageInputComponent';
-import SummaryComponent from './SummaryComponent';
 import ShareBtnComponent from './ShareBtnComponent';
 
 import { Ionicons } from '@expo/vector-icons';
@@ -23,6 +21,8 @@ export default function Calculator(){
 
     return(
         <View style={[myStyle.card, myStyle.elevation]}>
+
+                {/* People Component with You Pay info */}
                 <View style={myStyle.peopleSection}>
                     <View>
                         <Ionicons name="ios-people-outline" 
@@ -31,7 +31,7 @@ export default function Calculator(){
                             style={myStyle.peopleIcon}
                         />
                         {/* people component */}
-                        <PeopleComponent people={people} setPeople={setPeople}/>
+                        <PeopleInput people={people} setPeople={setPeople}/>
                     </View>
                     <View>
                         {/* you pay and total tip  */}
@@ -42,7 +42,7 @@ export default function Calculator(){
                 </View>
                 
 
-                
+
                 {/* total cost */}
                 <CostComponent 
                     setBill={setBill}

@@ -3,7 +3,7 @@ import { StyleSheet, Text, View, TextInput,TouchableOpacity, Alert } from 'react
 // import { Feather } from '@expo/vector-icons';
 import { AntDesign } from '@expo/vector-icons'; 
 
-export default function PeopleComponent(props){
+export default function PeopleInput(props){
     const {setPeople,people}=props;
     const [peopleText,setPeopleText]=useState('1');
     const textInputRef=useRef(null);
