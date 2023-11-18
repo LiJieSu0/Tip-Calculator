@@ -4,6 +4,7 @@ import { globalStyles } from '../GlobalStyle';
 
 
 import PeopleInput from './PeopleInput';
+import PeopleComponent from './PeopleComponent';
 import CostComponent from './CostComponent';
 import PercentageBtnComponent from './PercentageBtnComponent';
 import PercentageInputComponent from './PercentageInputComponent';
@@ -24,21 +25,11 @@ export default function Calculator(){
 
                 {/* People Component with You Pay info */}
                 <View style={myStyle.peopleSection}>
-                    <View>
-                        <Ionicons name="ios-people-outline" 
-                            size={35} 
-                            color="black" 
-                            style={myStyle.peopleIcon}
-                        />
-                        {/* people component */}
-                        <PeopleInput people={people} setPeople={setPeople}/>
-                    </View>
-                    <View>
-                        {/* you pay and total tip  */}
-                        <Text style={myStyle.payStyle}>
-                            You pay: {"\n"}${ perCost}{"\n"}
-                        </Text>
-                    </View>
+                    <PeopleComponent
+                        people={people} 
+                        setPeople={setPeople}
+                        perCost={perCost}
+                    />
                 </View>
                 
 
