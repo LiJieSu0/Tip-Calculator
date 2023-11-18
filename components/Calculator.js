@@ -41,6 +41,8 @@ export default function Calculator(){
                     </View>
                 </View>
                 
+
+                
                 {/* total cost */}
                 <CostComponent 
                     setBill={setBill}
