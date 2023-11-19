@@ -3,14 +3,12 @@ import { StyleSheet, Text, View} from 'react-native';
 import { globalStyles } from '../GlobalStyle';
 
 
-import PeopleInput from './PeopleInput';
 import PeopleComponent from './PeopleComponent';
 import CostComponent from './CostComponent';
 import PercentageBtnComponent from './PercentageBtnComponent';
 import PercentageInputComponent from './PercentageInputComponent';
 import ShareBtnComponent from './ShareBtnComponent';
 
-import { Ionicons } from '@expo/vector-icons';
 
 export default function Calculator(){
     const [bill, setBill]=useState(0);
