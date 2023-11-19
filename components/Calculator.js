@@ -1,7 +1,6 @@
 import React,{useState} from 'react';
-import { StyleSheet, Text, View} from 'react-native';
+import { Text, View} from 'react-native';
 import { globalStyles } from '../GlobalStyle';
-
 
 import PeopleInput from './PeopleInput';
 import PeopleComponent from './PeopleComponent';
@@ -12,6 +11,7 @@ import ShareBtnComponent from './ShareBtnComponent';
 
 import { Ionicons } from '@expo/vector-icons';
 
+
 export default function Calculator(){
     const [bill, setBill]=useState(0);
     const [people,setPeople]=useState(1);
@@ -21,93 +21,40 @@ export default function Calculator(){
     const perCost=(bill*(1+percentage/100)/people).toFixed(2);
 
     return(
-        <View style={[myStyle.card, myStyle.elevation]}>
-
-                {/* People Component with You Pay info */}
-                <View style={myStyle.peopleSection}>
+        <View style={[globalStyles.card, globalStyles.elevation]}>
+            <View style={globalStyles.main}>
+                {/* add people component/You Pay info */}
                     <PeopleComponent
                         people={people} 
                         setPeople={setPeople}
                         perCost={perCost}
                     />
-                </View>
-                
-
-
-                {/* total cost */}
+    
+                {/* total cost component*/}
                 <CostComponent 
                     setBill={setBill}
                     bill={bill}
                 />
 
-                {/* percentage button */}
-                <View style={globalStyles.btnContainer}>
-                    <PercentageBtnComponent
-                        percentageArr={percentageArr}
-                        currPercentage={percentage} 
-                        selectedIdx={selectedIdx} 
-                        setSelectedIdx={setSelectedIdx}
-                        setPercentage={setPercentage}    
-                    />
-                </View>
-
-                {/* tip percentage  */}
+                {/* percentage button component*/}
+                <PercentageBtnComponent
+                    percentageArr={percentageArr}
+                    currPercentage={percentage} 
+                    selectedIdx={selectedIdx} 
+                    setSelectedIdx={setSelectedIdx}
+                    setPercentage={setPercentage}
+                />
+               
+                {/* tip percentage component*/}
                 <PercentageInputComponent
                     setPercentage={setPercentage}
                     percentage={percentage}
                     bill={bill}
                     people={people}
                 />
-
-
-                {/* Share button */}
-                <ShareBtnComponent/>
-
+                {/* Share button component*/}
+                <ShareBtnComponent />
             </View>
+        </View>
 );}
 
-const myStyle=StyleSheet.create({
-    peopleIcon:{
-        marginLeft: 55,
-    },
-    peopleSection:{
-        width: 200,
-        height: 120,
-        paddingTop: 25,
-        flexDirection:'column',
-        flexWrap: 'wrap',
-    },
-    payStyle:{
-        width: 250,
-        height: 80,
-        fontSize: 28,
-        marginLeft: 10,
-        fontWeight: 'bold',
-        marginTop: 15,
-    },
-    tipStyle: {
-        fontSize: 12,
-        color: '#b4b1b1'
-    },
-
-    card:{
-        width: '100%',
-        height: 'auto',
-        alignContent: 'center',
-        backgroundColor: 'white',
-        borderRadius: 30,
-        paddingVertical: 45,
-        paddingHorizontal: 10,
-        marginBottom: 100,
-        shadowOffset:{
-            width:6,
-            height: 6,
-        },
-        shadowOpacity: 0.6,
-        shadowRadius: 4,
-    },
-    elevation: {
-        elevation: 20,
-        shadowColor: '#52006A',
-    },
-})

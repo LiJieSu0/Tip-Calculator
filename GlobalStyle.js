@@ -1,54 +1,37 @@
-import { StyleSheet} from 'react-native';
+import { StyleSheet } from 'react-native';
+import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-native-responsive-screen';
 
 export const globalStyles  = StyleSheet.create({
     container: {
-        flex: 1,
-        backgroundColor: '#fff',
         alignItems: 'center',
         justifyContent: 'center',
+        height: hp(120),
         backgroundColor: '#faf1e4',
     },
-    button:{
-        borderWidth:1,
-        borderColor:"black",
+    main:{
+        width: wp(90),
+        height: wp(90),
     },
-    wrapperCustom: {
-        borderRadius: 8,
-        padding: 6,
-    },
-    iconStyle:{
-        fontSize: 30,
-        position: 'absolute',
-        marginTop: 30,
-        marginLeft: 8,
-    },
-    // public total cost and custom tip input
-    input:{
-        flex: 1,
-        width: '100%',
-        height: 60,
-        marginTop: 15,
-        borderWidth:1,
-        borderColor:'black',
-        borderRadius: 20,
-        paddingLeft: 40,
-        fontSize: 18,
-        marginBottom: 10,
-    },
+    card:{
+        width: wp(95),
+        height: wp(100),
+        alignContent: 'center',
+        backgroundColor: '#ffffff',
+        borderRadius: 30,
+        paddingHorizontal: 10,
+        marginBottom: 100,
 
-    // total input 
-    inputLabelContainer:{
-        flexDirection:'row',
+        // only for ios
+        shadowOffset:{
+            width:6,
+            height: 6,
+        },
+        shadowOpacity: 0.6,
+        shadowRadius: 4,
     },
-    btnContainer:{
-        marginTop: 7,
-        flexDirection:'row',
-        columnGap: 18,
-        marginBottom: 5,
-    },
-    wrapperCustom: {
-        borderRadius: 8,
-        padding: 6,
+    elevation:{
+        elevation: 20,
+        shadowColor: '#52006A',
     },
 });
 

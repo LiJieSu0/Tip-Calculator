@@ -1,12 +1,10 @@
 import { StyleSheet, Text, View} from 'react-native';
-
-
-import PercentageBtn from "./PercentageBtn"
+import PercentageBtn from "./PercentageBtn";
 
 export default function PercentageBtnComponent(props){
     const {key,idx,percentage,currPercentage,selectedIdx,setSelectedIdx,setPercentage,percentageArr}=props;
     return(
-        <View>
+        <View style={myStyle.percentageLayout}>
             {percentageArr.map((arrPercent,idx)=>{
                 return(
                         <PercentageBtn
@@ -22,5 +20,12 @@ export default function PercentageBtnComponent(props){
             })}
         </View>
     )
-
 }
+
+const myStyle = StyleSheet.create({
+    percentageLayout:{
+        flexDirection:'row',
+        columnGap: 15,
+    }
+})
+    
