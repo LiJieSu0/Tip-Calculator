@@ -8,8 +8,7 @@ export default function PeopleInput(props){
     const [peopleText,setPeopleText]=useState('1');
     const textInputRef=useRef(null);
     return(
-        <View style={myStyle.peopleInputLabelContainer}>
-
+        <View style={myStyle.peopleInputSection}>
             {/* －－－－－－－－－－－－－－－－－－－－(｡･ω･｡)ﾉ－－－－－－－－－－－－－－－－ */}
             {/* sub people amount */}
             <View style={myStyle.subBtn}>
@@ -85,7 +84,7 @@ export default function PeopleInput(props){
 }
 
 const myStyle=StyleSheet.create({
-    peopleInputLabelContainer:{
+    peopleInputSection:{
         width: 150,
         height: 50,
         flexDirection:'row',

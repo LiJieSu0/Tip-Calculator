@@ -1,6 +1,5 @@
 import { View, Text,StyleSheet } from 'react-native';
 
-
 export default function SummaryComponent(props){
     const {bill,percentage,people}=props;
     const totalTip=(bill*percentage/100);

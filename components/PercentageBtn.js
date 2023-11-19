@@ -1,13 +1,12 @@
 import React from 'react';
-import { StyleSheet, Text, View,   TouchableOpacity} from 'react-native';
-import { globalStyles } from '../GlobalStyle';
+import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
 export default function PercentageBtn(props){
     const {percentage,idx,selectedIdx,setSelectedIdx,setPercentage,currPercentage}=props;
     return(
-            <View>
+            <View style={myStyle.percentageBtnSection}>
                 <TouchableOpacity
-                    style={[styles.button,currPercentage==percentage?styles.selected:'']}
+                    style={[myStyle.button,currPercentage==percentage?myStyle.selected:'']}
                     onPress={()=>{
                         if(selectedIdx==idx){
                             setSelectedIdx(-1);
@@ -18,27 +17,23 @@ export default function PercentageBtn(props){
                         setPercentage(percentage);
                     }}
                 >
-                    <Text style={styles.percentageStyle}>{percentage}%</Text>
+                    <Text style={myStyle.percentageStyle}>{percentage}%</Text>
                 </TouchableOpacity>
             </View>
 );}
 
-const styles = StyleSheet.create({
-    container: {
-        flex: 1,
-        justifyContent: 'center',
+const myStyle = StyleSheet.create({
+    percentageBtnSection: {
+        marginTop: 20,
+        marginBottom: 5,
     },
     button: {
         width: 65,
-        height: 50,
-        padding: 4,
-        backgroundColor: '#fff',
-        borderColor:'black',
+        height: 40,
         borderWidth:1,
         borderRadius:20,
         alignItems: 'center',
         justifyContent: 'center',
-        marginTop: 5,
     },
     selected:{
         backgroundColor: '#fdc57d',
