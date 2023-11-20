@@ -1,4 +1,5 @@
 // import { StatusBar } from 'expo-status-bar';
+import 'expo-dev-client';
 import {Keyboard, View,TouchableWithoutFeedback } from 'react-native';
 import React,{useState} from 'react';
 import Calculator from './components/Calculator';

@@ -8,6 +8,7 @@ import CostComponent from './CostComponent';
 import PercentageBtnComponent from './PercentageBtnComponent';
 import PercentageInputComponent from './PercentageInputComponent';
 import ShareBtnComponent from './ShareBtnComponent';
+import AdComponents from './AdComponent';
 
 
 export default function Calculator(){
@@ -52,6 +53,7 @@ export default function Calculator(){
                 />
                 {/* Share button component*/}
                 <ShareBtnComponent />
+                <AdComponents/>
             </View>
         </View>
 );}
