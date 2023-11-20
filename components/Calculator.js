@@ -53,7 +53,9 @@ export default function Calculator(){
                 />
                 {/* Share button component*/}
                 <ShareBtnComponent />
-                <AdComponents/>
+
+                {/* Google Ad component */}
+                <AdComponent/>
             </View>
         </View>
 );}
