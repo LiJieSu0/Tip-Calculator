@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import { Text, View} from 'react-native';
+import {View} from 'react-native';
 import { globalStyles } from '../GlobalStyle';
 
 
@@ -8,7 +8,7 @@ import CostComponent from './CostComponent';
 import PercentageBtnComponent from './PercentageBtnComponent';
 import PercentageInputComponent from './PercentageInputComponent';
 import ShareBtnComponent from './ShareBtnComponent';
-import AdComponents from './AdComponent';
+import AdComponent from './AdComponent';
 
 
 export default function Calculator(){
