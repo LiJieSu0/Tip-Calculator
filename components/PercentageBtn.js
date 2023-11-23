@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, TouchableOpacity} from 'react-native';
 
 export default function PercentageBtn(props){
     const {percentage,idx,selectedIdx,setSelectedIdx,setPercentage,currPercentage}=props;
+    console.log('curr '+currPercentage);
     return(
             <View style={myStyle.percentageBtnSection}>
                 <TouchableOpacity
