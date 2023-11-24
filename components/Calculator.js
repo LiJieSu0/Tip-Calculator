@@ -1,15 +1,14 @@
 import React,{useState} from 'react';
-import { Text, View} from 'react-native';
+import {View} from 'react-native';
 import { globalStyles } from '../GlobalStyle';
 
-import PeopleInput from './PeopleInput';
+
 import PeopleComponent from './PeopleComponent';
 import CostComponent from './CostComponent';
 import PercentageBtnComponent from './PercentageBtnComponent';
 import PercentageInputComponent from './PercentageInputComponent';
 import ShareBtnComponent from './ShareBtnComponent';
-
-import { Ionicons } from '@expo/vector-icons';
+import AdComponent from './AdComponent';
 
 
 export default function Calculator(){
@@ -23,7 +22,7 @@ export default function Calculator(){
     return(
         <View style={[globalStyles.card, globalStyles.elevation]}>
             <View style={globalStyles.main}>
-                {/* add people component/You Pay info */}
+                    {/* add people component/You Pay info */}
                     <PeopleComponent
                         people={people} 
                         setPeople={setPeople}
@@ -54,7 +53,13 @@ export default function Calculator(){
                 />
                 {/* Share button component*/}
                 <ShareBtnComponent />
+
+                 {/* Google Ad component */}
+                <AdComponent /> 
             </View>
         </View>
+    
+
+        
 );}
 

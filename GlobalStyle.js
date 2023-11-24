@@ -3,9 +3,10 @@ import {widthPercentageToDP as wp, heightPercentageToDP as hp} from 'react-nativ
 
 export const globalStyles  = StyleSheet.create({
     container: {
+        flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        height: hp(120),
+        paddingTop: 150,
         backgroundColor: '#faf1e4',
     },
     main:{
