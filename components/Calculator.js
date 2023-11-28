@@ -22,7 +22,7 @@ export default function Calculator(){
     return(
         <View style={[globalStyles.card, globalStyles.elevation]}>
             <View style={globalStyles.main}>
-                {/* add people component/You Pay info */}
+                    {/* add people component/You Pay info */}
                     <PeopleComponent
                         people={people} 
                         setPeople={setPeople}
@@ -54,9 +54,12 @@ export default function Calculator(){
                 {/* Share button component*/}
                 <ShareBtnComponent />
 
-                {/* Google Ad component */}
-                <AdComponent/>
+                 {/* Google Ad component */}
+                <AdComponent /> 
             </View>
         </View>
+    
+
+        
 );}
 
