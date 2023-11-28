@@ -2,7 +2,7 @@ import { StyleSheet, Text, View} from 'react-native';
 import PercentageBtn from "./PercentageBtn";
 
 export default function PercentageBtnComponent(props){
-    const {key,idx,percentage,currPercentage,selectedIdx,setSelectedIdx,setPercentage,percentageArr}=props;
+    const {currPercentage,selectedIdx,setSelectedIdx,setPercentage,percentageArr}=props;
     return(
         <View style={myStyle.percentageLayout}>
             {percentageArr.map((arrPercent,idx)=>{
@@ -11,7 +11,7 @@ export default function PercentageBtnComponent(props){
                             key={idx}
                             idx={idx} 
                             percentage={arrPercent}
-                            currPercentage={percentage} 
+                            currPercentage={currPercentage} 
                             selectedIdx={selectedIdx} 
                             setSelectedIdx={setSelectedIdx}
                             setPercentage={setPercentage}    

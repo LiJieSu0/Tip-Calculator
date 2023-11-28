@@ -1,8 +1,9 @@
 import React from 'react';
-import {Alert, Share, View, Button} from 'react-native';
+import {Alert, Share, View, Button, StyleSheet} from 'react-native';
 
 
 export default function ShareBtnComponent(){
+   
     const onShare = async () => {
         try {
             const result = await Share.share({
@@ -24,8 +25,17 @@ export default function ShareBtnComponent(){
         }
     };
     return (
-        <View style={{marginTop: 50}}>
+        <View style={myStyle.shareSection}>
             <Button onPress={onShare} title="Share" />
         </View>
     );
 }
+
+const myStyle = StyleSheet.create({
+    shareSection:{
+        width: '100%',
+        height: 50,
+        marginTop: 100,
+        marginBottom: 50,
+    }
+})

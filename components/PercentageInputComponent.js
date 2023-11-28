@@ -6,8 +6,9 @@ import SummaryComponent from './SummaryComponent';
 
 export default function PercentageInputComponent(props){
     const {setPercentage,percentage,bill,people}=props
-    return(
-                <View style={myStyle.percentageSection}>
+    return( 
+        <View style={myStyle.percentageLayout}>
+            <View style={myStyle.percentageSection}>
                     <MaterialCommunityIcons 
                         name="lightbulb-outline" 
                         color="black" 
@@ -15,9 +16,9 @@ export default function PercentageInputComponent(props){
                     />       
                     {/* % percentage input */}
                     <TextInput
+                        keyboardType='numeric'
                         style={myStyle.input}
                         placeholder='Custom tip'
-                        keyboardType='numeric'
                         onChangeText={(val)=>{
                             if(val>2000){
                                 Alert.alert('Oops!','The number is too large, please enter the percentage number again.',[
@@ -41,16 +42,20 @@ export default function PercentageInputComponent(props){
                         people={people}
                         percentage={percentage}
                     />   
-
                 </View>
+        </View>
+                
     )
 }
 
 const myStyle=StyleSheet.create({
+    percentageLayout:{
+        flex: 1,
+        paddingTop: 15,
+    },
     percentageSection:{
         width: '100%',
         height: 50,
-        marginTop: 15,
         borderWidth:1,
         borderRadius: 20,
     },
