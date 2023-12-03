@@ -2,13 +2,13 @@ import React,{useState} from 'react';
 import {View} from 'react-native';
 import { globalStyles } from '../GlobalStyle';
 
-
 import PeopleComponent from './PeopleComponent';
 import CostComponent from './CostComponent';
 import PercentageBtnComponent from './PercentageBtnComponent';
 import PercentageInputComponent from './PercentageInputComponent';
 import ShareBtnComponent from './ShareBtnComponent';
 import AdComponent from './AdComponent';
+import OnboardingComponent from './OnboardingComponent';
 
 
 export default function Calculator(){
@@ -22,6 +22,8 @@ export default function Calculator(){
     return(
         <View style={[globalStyles.card, globalStyles.elevation]}>
             <View style={globalStyles.main}>
+                    <OnboardingComponent />
+
                     {/* add people component/You Pay info */}
                     <PeopleComponent
                         people={people} 
