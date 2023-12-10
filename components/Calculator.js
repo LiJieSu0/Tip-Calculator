@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {View} from 'react-native';
+import {View,TouchableWithoutFeedback,Keyboard} from 'react-native';
 import { globalStyles } from '../GlobalStyle';
 
 
@@ -20,6 +20,8 @@ export default function Calculator(){
     const perCost=(bill*(1+percentage/100)/people).toFixed(2);
 
     return(
+      <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>
+
         <View style={[globalStyles.card, globalStyles.elevation]}>
             <View style={globalStyles.main}>
                     {/* add people component/You Pay info */}
@@ -58,6 +60,7 @@ export default function Calculator(){
                 <AdComponent /> 
             </View>
         </View>
+        </TouchableWithoutFeedback>
     
 
         

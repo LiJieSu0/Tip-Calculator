@@ -4,7 +4,7 @@ import OnboardingItem from './OnboardingItem';
 
 
 export default function OnboardingComponent(props){
-    const {setIsFirstLaunch}=props;
+    const {navigation}=props;
     const flatListRef = useRef(null);
     const [currentIndex, setCurrentIndex] = useState(0);
     const handleNextPress = () => {
@@ -29,6 +29,7 @@ export default function OnboardingComponent(props){
 
     const handleFinishPress=async()=>{
         console.log("finish")
+        navigation.navigate('Home');
     }
 
     return(
@@ -49,9 +50,11 @@ export default function OnboardingComponent(props){
 
         />
         <Button title="Previous" onPress={handlePrevPress} />
-            <Button title="Next" onPress={handleNextPress} />
 
-            <Button title="Done" onPress={handleFinishPress} />
+        {currentIndex==slides.length-1?
+            <Button title="Done" onPress={handleFinishPress} />:
+            <Button title="Next" onPress={handleNextPress} />
+        }
         </View>
     )
 }
