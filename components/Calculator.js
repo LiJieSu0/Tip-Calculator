@@ -1,5 +1,5 @@
 import React,{useState} from 'react';
-import {View,TouchableWithoutFeedback,Keyboard} from 'react-native';
+import {View,TouchableWithoutFeedback,Keyboard,Button} from 'react-native';
 import { globalStyles } from '../GlobalStyle';
 
 
@@ -10,6 +10,7 @@ import PercentageInputComponent from './PercentageInputComponent';
 import ShareBtnComponent from './ShareBtnComponent';
 import AdComponent from './AdComponent';
 
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Calculator(){
     const [bill, setBill]=useState(0);
@@ -19,6 +20,14 @@ export default function Calculator(){
     const percentageArr=[10,15,18,20];
     const perCost=(bill*(1+percentage/100)/people).toFixed(2);
 
+    const clearBtn=async()=>{
+        try{
+            await AsyncStorage.setItem("@isFirstLaunch","true");
+            console.log("clear");
+        }catch(e){
+            console.log(e);
+        }
+    }
     return(
       <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>
 
@@ -58,6 +67,7 @@ export default function Calculator(){
 
                  {/* Google Ad component */}
                 <AdComponent /> 
+                <Button title="clear" onPress={clearBtn}/>
             </View>
         </View>
         </TouchableWithoutFeedback>

@@ -1,6 +1,5 @@
 // import { StatusBar } from 'expo-status-bar';
 import 'expo-dev-client';
-import {Keyboard, View,TouchableWithoutFeedback,Button } from 'react-native';
 import React,{useEffect, useState} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
@@ -13,20 +12,20 @@ import { myData } from './GlobalContext';
 import { globalStyles } from './GlobalStyle';
 export default function App() {
     const [isFirstLaunch,setIsFirstLaunch]=useState(null);
-    const [value,setValue]=useState(1);
     const checkOnboarding=async()=>{
       try{
-        const value=await AsyncStorage.getItem("firstLaunch");
-        if(value===null){
+        const value=await AsyncStorage.getItem("@isFirstLaunch");
+        console.log(value);
+        if(value===null||value=="true"){
           setIsFirstLaunch(true);
-          AsyncStorage.setItem("firstLaunch","false");
+          await AsyncStorage.setItem("@isFirstLaunch","false");
+        }
+        else{
+          setIsFirstLaunch(false);
         }
       }
       catch(e){
         console.log(e);
-      }
-      finally{
-        setIsFirstLaunch(false);
       }
     }
 
@@ -44,12 +43,11 @@ export default function App() {
               {isFirstLaunch&&
                 <Stack.Screen name="Onboarding" options={{headerShown: false}} component={OnboardingComponent} />
               }
-              {!isFirstLaunch&&
-                <Stack.Screen name="Home" options={{headerShown: false}} component={Calculator} />
-              }
+              <Stack.Screen name="Home" options={{headerShown: false}} component={Calculator} />
+              
           </Stack.Navigator>
         </NavigationContainer>
     )
       // </myData.Provider>
-      );
+    );
 }
