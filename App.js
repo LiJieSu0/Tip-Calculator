@@ -40,9 +40,9 @@ export default function App() {
     isFirstLaunch!=null&&(
         <NavigationContainer>
           <Stack.Navigator screenOptions={{headerShow:false}}>
-              {isFirstLaunch&&
+              {/* {isFirstLaunch&& */}
                 <Stack.Screen name="Onboarding" options={{headerShown: false}} component={OnboardingComponent} />
-              }
+              {/* } */}
               <Stack.Screen name="Home" options={{headerShown: false}} component={Calculator} />
               
           </Stack.Navigator>
