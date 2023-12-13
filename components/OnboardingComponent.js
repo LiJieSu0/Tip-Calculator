@@ -1,5 +1,5 @@
 import { useState,useRef } from 'react';
-import {Text,View, FlatList,Animated,Button} from 'react-native';
+import {Text,View, FlatList,Animated,Button,Image} from 'react-native';
 import OnboardingItem from './OnboardingItem';
 
 
@@ -49,7 +49,7 @@ export default function OnboardingComponent(props){
             }}
 
         />
-        <Button title="Previous" onPress={handlePrevPress} />
+        {currentIndex!=0&&<Button title="Previous" onPress={handlePrevPress} />}
 
         {currentIndex==slides.length-1?
             <Button title="Done" onPress={handleFinishPress} />:
@@ -64,15 +64,18 @@ const slides=[
         id:'1',
         title:'first onboarding page',
         description:'this is the first page ',
+        img:require('../assets/icon.png')
     },
     {
         id:'2',
         title:'second page',
         description:'this is the second page',
+        img:require('../assets/icon.png')
     },
     {
         id:'3',
         title:'end page',
         description:'this is the end page',
+        img:require('../assets/icon.png')
     },
 ]

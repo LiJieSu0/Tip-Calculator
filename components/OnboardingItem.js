@@ -1,4 +1,4 @@
-import {Text,View, FlatList,useWindowDimensions,StyleSheet} from 'react-native';
+import {Text,View, FlatList,useWindowDimensions,StyleSheet,Image} from 'react-native';
 
 export default function OnboardingItem({item}){
     const {width}=useWindowDimensions();
@@ -6,6 +6,7 @@ export default function OnboardingItem({item}){
         <View style={[myStyle.container,{width}]}>
             <Text>{item.title}</Text>
             <Text>{item.description}</Text>
+            <Image source={item.img}/>
         </View>
     );
 }

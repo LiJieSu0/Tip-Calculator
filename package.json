@@ -20,6 +20,7 @@
     "react-dom": "18.2.0",
     "react-native": "0.72.6",
     "react-native-google-mobile-ads": "^12.4.0",
+    "react-native-onboarding-swiper": "^1.2.0",
     "react-native-responsive-screen": "^1.4.2",
     "react-native-web": "~0.19.6",
     "typed-async-storage": "^3.1.2"
