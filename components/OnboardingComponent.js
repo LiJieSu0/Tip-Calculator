@@ -1,61 +1,32 @@
 import { useState,useRef } from 'react';
 import {Text,View, FlatList,Animated,Button,Image} from 'react-native';
-import OnboardingItem from './OnboardingItem';
+import Onboarding from 'react-native-onboarding-swiper';
+
 
 
 export default function OnboardingComponent(props){
     const {navigation}=props;
-    const flatListRef = useRef(null);
-    const [currentIndex, setCurrentIndex] = useState(0);
-    const handleNextPress = () => {
-        let nextIndex = currentIndex + 1;
-        if(slides.length<=nextIndex)
-            nextIndex=slides.length-1;
-        setCurrentIndex(nextIndex);
-        console.log(currentIndex);
-        flatListRef.current?.scrollToIndex({
-            animated: true,
-            index: nextIndex,
-        }); 
-    };
-    const handlePrevPress = () => {
-        const prevIndex = currentIndex - 1;
-        setCurrentIndex(prevIndex < 0 ? 0 : prevIndex);
-        flatListRef.current?.scrollToIndex({
-            animated: true,
-            index: prevIndex < 0 ? 0 : prevIndex,
-        });
-    };
-
-    const handleFinishPress=async()=>{
-        console.log("finish")
-        navigation.navigate('Home');
-    }
-
+    
     return(
-        <View style={{flex:3}}>
-        <FlatList data={slides}
-            ref={flatListRef}
-            renderItem={({item}) => <OnboardingItem item={item}/>}
-            keyExtractor={item=>item.id}
-            pagingEnabled
-            horizontal
-            showsHorizontalScrollIndicator
-            contentContainerStyle={{flexGrow:1}}
-            onMomentumScrollEnd={(event) => {
-                const contentOffset = event.nativeEvent.contentOffset.x;
-                const index = Math.round(contentOffset / Dimensions.get('window').width);
-                setCurrentIndex(index);
-            }}
+            <Onboarding
+            onDone={()=>navigation.navigate('Home')}
+            onSkip={()=>navigation.navigate('Home')}
+            pages={[
+                {
+                backgroundColor: '#fff',
+                title: 'Onboarding',
+                subtitle: 'Done with React Native Onboarding Swiper',
+                image: <Image source={require('../assets/tips-icon.png')} />,
+                },
+                {
+                backgroundColor: '#fff',
+                title: 'Onboarding2',
+                subtitle: 'Done with React Native Onboarding Swiper',
+                image: <Image source={require('../assets/tips-icon.png')} />,
 
-        />
-        {currentIndex!=0&&<Button title="Previous" onPress={handlePrevPress} />}
-
-        {currentIndex==slides.length-1?
-            <Button title="Done" onPress={handleFinishPress} />:
-            <Button title="Next" onPress={handleNextPress} />
-        }
-        </View>
+                }
+            ]}
+            />
     )
 }
 
