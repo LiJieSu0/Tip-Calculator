@@ -67,9 +67,7 @@ export default function Calculator(){
 
                  {/* Google Ad component */}
                 <AdComponent /> 
-                
-                {/* Button for clear isFirstLaunch value, only for testing */}
-                <Button title="clear" onPress={clearBtn}/> 
+
 
             </View>
         </View>
