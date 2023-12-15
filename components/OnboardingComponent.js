@@ -13,17 +13,22 @@ export default function OnboardingComponent(props){
             onSkip={()=>navigation.navigate('Home')}
             pages={[
                 {
-                backgroundColor: '#fff',
-                title: 'Onboarding',
-                subtitle: 'Done with React Native Onboarding Swiper',
-                image: <Image source={require('../assets/tips-icon.png')} />,
+                    backgroundColor: '#fff',
+                    title: 'Onboarding',
+                    subtitle: 'Done with React Native Onboarding Swiper',
+                    image: <Image source={require('../assets/add.png')} />,
                 },
                 {
-                backgroundColor: '#fff',
-                title: 'Onboarding2',
-                subtitle: 'Done with React Native Onboarding Swiper',
-                image: <Image source={require('../assets/tips-icon.png')} />,
-
+                    backgroundColor: '#fff',
+                    title: 'Onboarding2',
+                    subtitle: 'Done with React Native Onboarding Swiper',
+                    image: <Image source={require('../assets/custom-tip.png')} />,
+                },
+                {
+                    backgroundColor: '#fff',
+                    title: 'Onboarding2',
+                    subtitle: 'Done with React Native Onboarding Swiper',
+                    image: <Image source={require('../assets/total-cost.png')} />,
                 }
             ]}
             />

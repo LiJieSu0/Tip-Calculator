@@ -54,7 +54,6 @@ export default function Calculator(){
                     setSelectedIdx={setSelectedIdx}
                     setPercentage={setPercentage}
                 />
-               
                 {/* tip percentage component*/}
                 <PercentageInputComponent
                     setPercentage={setPercentage}
@@ -67,7 +66,7 @@ export default function Calculator(){
 
                  {/* Google Ad component */}
                 <AdComponent /> 
-
+                
 
             </View>
         </View>

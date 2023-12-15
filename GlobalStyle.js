@@ -10,18 +10,19 @@ export const globalStyles  = StyleSheet.create({
         backgroundColor: '#faf1e4',
     },
     main:{
+        
         width: wp(90),
         height: wp(90),
     },
     card:{
-        width: wp(95),
+        marginTop: 200,
+        width: wp(100),
         height: wp(100),
         alignContent: 'center',
         backgroundColor: '#ffffff',
         borderRadius: 30,
-        paddingHorizontal: 10,
-        marginBottom: 100,
-
+        alignItems: 'center',
+        justifyContent: 'center',
         // only for ios
         shadowOffset:{
             width:6,
