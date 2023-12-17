@@ -22,13 +22,13 @@ export default function OnboardingComponent(props){
                     backgroundColor: '#fff',
                     title: 'Onboarding2',
                     subtitle: 'Done with React Native Onboarding Swiper',
-                    image: <Image source={require('../assets/custom-tip.png')} />,
+                    image: <Image source={require('../assets/total-cost.png')} />,
                 },
                 {
                     backgroundColor: '#fff',
                     title: 'Onboarding2',
                     subtitle: 'Done with React Native Onboarding Swiper',
-                    image: <Image source={require('../assets/total-cost.png')} />,
+                    image: <Image source={require('../assets/custom-tip.png')} />,
                 }
             ]}
             />

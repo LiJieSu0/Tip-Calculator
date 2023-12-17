@@ -11,7 +11,7 @@ export default function AdComponent(){
                 requestOptions={{
                     requestNonPersonalizedAdsOnly: true,
                 }}
-        />
+            />
         </View>
     );
 }

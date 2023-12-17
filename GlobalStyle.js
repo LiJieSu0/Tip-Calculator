@@ -6,11 +6,10 @@ export const globalStyles  = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        paddingTop: 150,
         backgroundColor: '#faf1e4',
+        paddingBottom: 200,
     },
     main:{
-        
         width: wp(90),
         height: wp(90),
     },
