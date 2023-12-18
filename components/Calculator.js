@@ -30,47 +30,49 @@ export default function Calculator(){
     }
     return(
       <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>
-
-        <View style={[globalStyles.card, globalStyles.elevation]}>
-            <View style={globalStyles.main}>
-                    {/* add people component/You Pay info */}
-                    <PeopleComponent
-                        people={people} 
-                        setPeople={setPeople}
-                        perCost={perCost}
+        <View style={globalStyles.adComponent}>
+            <View style={[globalStyles.card, globalStyles.elevation]}>
+                <View style={globalStyles.main}>
+                        {/* add people component/You Pay info */}
+                        <PeopleComponent
+                            people={people} 
+                            setPeople={setPeople}
+                            perCost={perCost}
+                        />
+        
+                    {/* total cost component*/}
+                    <CostComponent 
+                        setBill={setBill}
+                        bill={bill}
                     />
-    
-                {/* total cost component*/}
-                <CostComponent 
-                    setBill={setBill}
-                    bill={bill}
-                />
 
-                {/* percentage button component*/}
-                <PercentageBtnComponent
-                    percentageArr={percentageArr}
-                    currPercentage={percentage} 
-                    selectedIdx={selectedIdx} 
-                    setSelectedIdx={setSelectedIdx}
-                    setPercentage={setPercentage}
-                />
-                {/* tip percentage component*/}
-                <PercentageInputComponent
-                    setPercentage={setPercentage}
-                    percentage={percentage}
-                    bill={bill}
-                    people={people}
-                />
-                {/* Share button component*/}
-                <ShareBtnComponent />
+                    {/* percentage button component*/}
+                    <PercentageBtnComponent
+                        percentageArr={percentageArr}
+                        currPercentage={percentage} 
+                        selectedIdx={selectedIdx} 
+                        setSelectedIdx={setSelectedIdx}
+                        setPercentage={setPercentage}
+                    />
+                    {/* tip percentage component*/}
+                    <PercentageInputComponent
+                        setPercentage={setPercentage}
+                        percentage={percentage}
+                        bill={bill}
+                        people={people}
+                    />
+                    {/* Share button component*/}
+                    <ShareBtnComponent />
 
-                 {/* Google Ad component */}
-                <AdComponent /> 
-                
+                    {/* Google Ad component */}
+                    
 
+                </View>
             </View>
+            <AdComponent /> 
+
         </View>
+
         </TouchableWithoutFeedback>
-    
 );}
 

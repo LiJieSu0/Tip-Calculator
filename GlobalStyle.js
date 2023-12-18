@@ -35,5 +35,11 @@ export const globalStyles  = StyleSheet.create({
         elevation: 20,
         shadowColor: '#52006A',
     },
+    adComponent:{
+        flex: 1,
+        justifyContent: 'flex-end',
+        alignItems: 'center',
+        marginBottom: 3, 
+    },
 });
 
