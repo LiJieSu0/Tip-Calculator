@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React,{useState,useRef} from 'react';
 import {View,TouchableWithoutFeedback,Keyboard,Button} from 'react-native';
 import { globalStyles } from '../GlobalStyle';
 
@@ -9,6 +9,7 @@ import PercentageBtnComponent from './PercentageBtnComponent';
 import PercentageInputComponent from './PercentageInputComponent';
 import ShareBtnComponent from './ShareBtnComponent';
 import AdComponent from './AdComponent';
+import ScreenShotBtn from './ScreenShotBtn';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -19,7 +20,7 @@ export default function Calculator(){
     const [selectedIdx,setSelectedIdx]=useState(-1);
     const percentageArr=[10,15,18,20];
     const perCost=(bill*(1+percentage/100)/people).toFixed(2);
-
+    const screenRef=useRef();
     const clearBtn=async()=>{
         try{
             await AsyncStorage.setItem("@isFirstLaunch","true");
@@ -31,7 +32,7 @@ export default function Calculator(){
     return(
       <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>
         <View style={globalStyles.adComponent}>
-            <View style={[globalStyles.card, globalStyles.elevation]}>
+            <View style={[globalStyles.card, globalStyles.elevation]} ref={screenRef} collapsable={false}>
                 <View style={globalStyles.main}>
                         {/* add people component/You Pay info */}
                         <PeopleComponent
@@ -64,11 +65,13 @@ export default function Calculator(){
                     {/* Share button component*/}
                     <ShareBtnComponent />
 
-                    {/* Google Ad component */}
+                    <ScreenShotBtn screenRef={screenRef}/>
                     
 
                 </View>
             </View>
+
+            {/* Google Ad component */}
             <AdComponent /> 
 
         </View>
