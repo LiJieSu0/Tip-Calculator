@@ -42,7 +42,7 @@ export default function App() {
         <NavigationContainer>
           <Stack.Navigator screenOptions={{headerShow:false}}>
               {/* {isFirstLaunch&& */}
-                <Stack.Screen name="Onboarding" options={{headerShown: false}} component={OnboardingComponent} />
+                {/* <Stack.Screen name="Onboarding" options={{headerShown: false}} component={OnboardingComponent} /> */}
               {/* } */}
               <Stack.Screen name="Home" options={{headerShown: false}} component={Calculator} />
               
