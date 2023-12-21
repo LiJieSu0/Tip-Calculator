@@ -1,8 +1,6 @@
 import React,{useState,useRef} from 'react';
 import {View,TouchableWithoutFeedback,Keyboard,Button} from 'react-native';
 import { globalStyles } from '../GlobalStyle';
-
-
 import PeopleComponent from './PeopleComponent';
 import CostComponent from './CostComponent';
 import PercentageBtnComponent from './PercentageBtnComponent';
@@ -10,7 +8,6 @@ import PercentageInputComponent from './PercentageInputComponent';
 import ShareBtnComponent from './ShareBtnComponent';
 import AdComponent from './AdComponent';
 import ScreenShotBtn from './ScreenShotBtn';
-
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Calculator(){
@@ -31,7 +28,7 @@ export default function Calculator(){
     }
     return(
       <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>
-        <View style={globalStyles.adComponent}>
+        <View style={globalStyles.container}>
             <View style={[globalStyles.card, globalStyles.elevation]} ref={screenRef} collapsable={false}>
                 <View style={globalStyles.main}>
                         {/* add people component/You Pay info */}
@@ -62,17 +59,18 @@ export default function Calculator(){
                         bill={bill}
                         people={people}
                     />
+                    {/* Screen ShotBtn component*/}
+                    {/* <ScreenShotBtn screenRef={screenRef}/> */}
+
                     {/* Share button component*/}
                     <ShareBtnComponent />
 
-                    <ScreenShotBtn screenRef={screenRef}/>
-                    
-
                 </View>
             </View>
+           
 
             {/* Google Ad component */}
-            <AdComponent /> 
+            <AdComponent style={globalStyles.adComponent} /> 
 
         </View>
 
