@@ -27,53 +27,51 @@ export default function Calculator(){
         }
     }
     return(
-      <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>
+
         <View style={globalStyles.container}>
-            <View style={[globalStyles.card, globalStyles.elevation]} ref={screenRef} collapsable={false}>
-                <View style={globalStyles.main}>
-                        {/* add people component/You Pay info */}
-                        <PeopleComponent
-                            people={people} 
-                            setPeople={setPeople}
-                            perCost={perCost}
+            <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>
+                <View style={[globalStyles.card, globalStyles.elevation]}>
+                    <View style={globalStyles.main}>
+                            {/* add people component/You Pay info */}
+                            <PeopleComponent
+                                people={people} 
+                                setPeople={setPeople}
+                                perCost={perCost}
+                            />
+            
+                        {/* total cost component*/}
+                        <CostComponent 
+                            setBill={setBill}
+                            bill={bill}
                         />
-        
-                    {/* total cost component*/}
-                    <CostComponent 
-                        setBill={setBill}
-                        bill={bill}
-                    />
 
-                    {/* percentage button component*/}
-                    <PercentageBtnComponent
-                        percentageArr={percentageArr}
-                        currPercentage={percentage} 
-                        selectedIdx={selectedIdx} 
-                        setSelectedIdx={setSelectedIdx}
-                        setPercentage={setPercentage}
-                    />
-                    {/* tip percentage component*/}
-                    <PercentageInputComponent
-                        setPercentage={setPercentage}
-                        percentage={percentage}
-                        bill={bill}
-                        people={people}
-                    />
-                    {/* Screen ShotBtn component*/}
-                    {/* <ScreenShotBtn screenRef={screenRef}/> */}
+                        {/* percentage button component*/}
+                        <PercentageBtnComponent
+                            percentageArr={percentageArr}
+                            currPercentage={percentage} 
+                            selectedIdx={selectedIdx} 
+                            setSelectedIdx={setSelectedIdx}
+                            setPercentage={setPercentage}
+                        />
+                        {/* tip percentage component*/}
+                        <PercentageInputComponent
+                            setPercentage={setPercentage}
+                            percentage={percentage}
+                            bill={bill}
+                            people={people}
+                        />
+                        {/* Share button component*/}
+                        <ShareBtnComponent />
 
-                    {/* Share button component*/}
-                    <ShareBtnComponent />
+                        {/* Google Ad component */}
+                        <AdComponent /> 
+                        
 
+                    </View>
                 </View>
-            </View>
-           
-
-            {/* Google Ad component */}
-            <AdComponent style={globalStyles.adComponent} /> 
-
+            </TouchableWithoutFeedback>
         </View>
+      
 
-        </TouchableWithoutFeedback>
 );}
 

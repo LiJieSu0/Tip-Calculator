@@ -7,9 +7,9 @@ export const globalStyles  = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#faf1e4',
+        paddingBottom: 200,
     },
     main:{
-        
         width: wp(90),
         height: wp(90),
     },

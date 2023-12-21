@@ -10,6 +10,7 @@ import Calculator from './components/Calculator';
 import OnboardingComponent from './components/OnboardingComponent';
 import { myData } from './GlobalContext';
 import { globalStyles } from './GlobalStyle';
+
 export default function App() {
     const [isFirstLaunch,setIsFirstLaunch]=useState(null);
     const checkOnboarding=async()=>{
