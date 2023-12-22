@@ -5,9 +5,9 @@ import PeopleComponent from './PeopleComponent';
 import CostComponent from './CostComponent';
 import PercentageBtnComponent from './PercentageBtnComponent';
 import PercentageInputComponent from './PercentageInputComponent';
-import ShareBtnComponent from './ShareBtnComponent';
+// import ShareBtnComponent from './ShareBtnComponent';
 import AdComponent from './AdComponent';
-import ScreenShotBtn from './ScreenShotBtn';
+// import ScreenShotBtn from './ScreenShotBtn';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function Calculator(){
@@ -27,51 +27,55 @@ export default function Calculator(){
         }
     }
     return(
+        <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>
+          <View style={globalStyles.container}>
+              <View style={[globalStyles.card, globalStyles.elevation]} ref={screenRef} collapsable={false}>
+                  <View style={globalStyles.main}>
+                          {/* add people component/You Pay info */}
+                          <PeopleComponent
+                              people={people} 
+                              setPeople={setPeople}
+                              perCost={perCost}
+                          />
+          
+                      {/* total cost component*/}
+                      <CostComponent 
+                          setBill={setBill}
+                          bill={bill}
+                      />
+  
+                      {/* percentage button component*/}
+                      <PercentageBtnComponent
+                          percentageArr={percentageArr}
+                          currPercentage={percentage} 
+                          selectedIdx={selectedIdx} 
+                          setSelectedIdx={setSelectedIdx}
+                          setPercentage={setPercentage}
+                      />
+                      {/* tip percentage component*/}
+                      <PercentageInputComponent
+                          setPercentage={setPercentage}
+                          percentage={percentage}
+                          bill={bill}
+                          people={people}
+                      />
+                      {/* Screen ShotBtn component*/}
+                      {/* <ScreenShotBtn screenRef={screenRef}/> */}
+  
+                      {/* Share button component*/}
+                      {/* <ShareBtnComponent /> */}
+  
+                  </View>
+              </View>
 
-        <View style={globalStyles.container}>
-            <TouchableWithoutFeedback onPress={()=>Keyboard.dismiss()}>
-                <View style={[globalStyles.card, globalStyles.elevation]}>
-                    <View style={globalStyles.main}>
-                            {/* add people component/You Pay info */}
-                            <PeopleComponent
-                                people={people} 
-                                setPeople={setPeople}
-                                perCost={perCost}
-                            />
-            
-                        {/* total cost component*/}
-                        <CostComponent 
-                            setBill={setBill}
-                            bill={bill}
-                        />
+              <View style={globalStyles.adComponent} >
+                {/* Google Ad component */}
+                <AdComponent /> 
+              </View>
+              
+          </View>
+        
 
-                        {/* percentage button component*/}
-                        <PercentageBtnComponent
-                            percentageArr={percentageArr}
-                            currPercentage={percentage} 
-                            selectedIdx={selectedIdx} 
-                            setSelectedIdx={setSelectedIdx}
-                            setPercentage={setPercentage}
-                        />
-                        {/* tip percentage component*/}
-                        <PercentageInputComponent
-                            setPercentage={setPercentage}
-                            percentage={percentage}
-                            bill={bill}
-                            people={people}
-                        />
-                        {/* Share button component*/}
-                        <ShareBtnComponent />
-
-                        {/* Google Ad component */}
-                        <AdComponent /> 
-                        
-
-                    </View>
-                </View>
-            </TouchableWithoutFeedback>
-        </View>
-      
-
-);}
+          </TouchableWithoutFeedback>
+  );}
 

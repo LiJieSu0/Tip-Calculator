@@ -7,7 +7,6 @@ export const globalStyles  = StyleSheet.create({
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: '#faf1e4',
-        paddingBottom: 200,
     },
     main:{
         width: wp(90),
@@ -38,7 +37,6 @@ export const globalStyles  = StyleSheet.create({
         flex: 1,
         justifyContent: 'flex-end',
         alignItems: 'center',
-        marginBottom: 3, 
     },
 });
 
